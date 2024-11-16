@@ -64,6 +64,23 @@
             background-clip: text;
             color: transparent;
         }
+
+        /* New styles for menu icon animation */
+        .menu-icon {
+            transition: transform 0.3s ease;
+        }
+        .menu-icon.open {
+            transform: rotate(90deg);
+        }
+
+        /* New styles for product card hover effects */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="flex min-h-screen flex-col">
@@ -87,7 +104,7 @@
     <header class="border-b sticky top-0 bg-white z-50">
         <div class="container mx-auto flex items-center justify-between px-4 py-4">
             <button id="mobileMenuButton" class="text-gray-600 hover:text-primary lg:hidden">
-                <i class="fas fa-bars h-5 w-5"></i>
+                <i class="fas fa-bars h-5 w-5 menu-icon"></i>
             </button>
 
             <nav class="hidden lg:flex space-x-6">
@@ -166,60 +183,36 @@
         <section id="vapes_recargables" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES RECARGABLES</h2>
             <div class="relative">
-                <div class="flex overflow-x-auto pb-4 scrollbar-hide" id="vapes_recargablesContainer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="vapes_recargablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('vapes_recargables', -200)">
-                    <i class="fas fa-chevron-left h-6 w-6"></i>
-                </button>
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('vapes_recargables', 200)">
-                    <i class="fas fa-chevron-right h-6 w-6"></i>
-                </button>
             </div>
         </section>
 
         <section id="liquidos" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">LIQUIDOS</h2>
             <div class="relative">
-                <div class="flex overflow-x-auto pb-4 scrollbar-hide" id="liquidosContainer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="liquidosContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('liquidos', -200)">
-                    <i class="fas fa-chevron-left h-6 w-6"></i>
-                </button>
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('liquidos', 200)">
-                    <i class="fas fa-chevron-right h-6 w-6"></i>
-                </button>
             </div>
         </section>
 
         <section id="vapes_desechables" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES DESECHABLES</h2>
             <div class="relative">
-                <div class="flex overflow-x-auto pb-4 scrollbar-hide" id="vapes_desechablesContainer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="vapes_desechablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('vapes_desechables', -200)">
-                    <i class="fas fa-chevron-left h-6 w-6"></i>
-                </button>
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('vapes_desechables', 200)">
-                    <i class="fas fa-chevron-right h-6 w-6"></i>
-                </button>
             </div>
         </section>
 
         <section id="resistencias" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">RESISTENCIAS</h2>
             <div class="relative">
-                <div class="flex overflow-x-auto pb-4 scrollbar-hide" id="resistenciasContainer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="resistenciasContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('resistencias', -200)">
-                    <i class="fas fa-chevron-left h-6 w-6"></i>
-                </button>
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md" onclick="scrollProducts('resistencias', 200)">
-                    <i class="fas fa-chevron-right h-6 w-6"></i>
-                </button>
             </div>
         </section>
 
@@ -289,7 +282,7 @@
                         </li>
                         <li class="flex items-center text-sm text-gray-400">
                             <i class="fas fa-envelope mr-2 h-4 w-4"></i>
-                            info@vapeshoptucuman.com
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea7a0a8a18eb8afbeabbda6a1bebabbadbba3afa0e0ada1a3">[email&#160;protected]</a>
                         </li>
                     </ul>
                 </div>
@@ -422,6 +415,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
 </html>
