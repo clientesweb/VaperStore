@@ -1,11 +1,4 @@
 // Data
-const categories = [
-    { id: 1, name: "VAPES RECARGABLES", image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "vapes_recargables" },
-    { id: 2, name: "LIQUIDOS", image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "liquidos" },
-    { id: 3, name: "VAPES DESECHABLES", image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "vapes_desechables" },
-    { id: 4, name: "RESISTENCIAS", image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "resistencias" },
-];
-
 const products = {
     vapes_recargables: [
         { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable de larga duración." },
@@ -15,7 +8,9 @@ const products = {
     liquidos: [
         { id: 4, name: "LÍQUIDO PREMIUM FRUTAS DEL BOSQUE", price: 15000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a frutas del bosque." },
         { id: 5, name: "LÍQUIDO MENTOLADO INTENSO", price: 14000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor mentolado intenso." },
-        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a tabaco suave." },
+        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxM
+
+jA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a tabaco suave." },
     ],
     vapes_desechables: [
         { id: 7, name: "LOST MARY MIXER 30000-ORANGE STRAWBERRY", price: 25000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a naranja y fresa." },
@@ -51,7 +46,6 @@ const bannerMessageEl = document.getElementById('bannerMessage');
 const cartItemCountEl = document.getElementById('cartItemCount');
 const cartItemsEl = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
-const categoriesContainerEl = document.getElementById('categoriesContainer');
 const heroEl = document.getElementById('hero');
 const productContainers = {
     vapes_recargables: document.getElementById('vapes_recargablesContainer'),
@@ -73,23 +67,10 @@ function updateHero() {
     currentHeroImage = (currentHeroImage + 1) % heroImages.length;
 }
 
-function renderCategories() {
-    categoriesContainerEl.innerHTML = categories.map(category => `
-        <div class="flex-shrink-0 w-64 mr-4 bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-4">
-                <div class="relative mb-4 aspect-square">
-                    <img src="${category.image}" alt="${category.name}" class="object-cover w-full h-full rounded-lg">
-                </div>
-                <h3 class="text-center text-lg font-medium">${category.name}</h3>
-            </div>
-        </div>
-    `).join('');
-}
-
 function renderProducts() {
     for (const [category, productList] of Object.entries(products)) {
         productContainers[category].innerHTML = productList.map(product => `
-            <div class="product-card flex-shrink-0 w-64 mr-4 bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="p-4">
                     <div class="relative mb-4 aspect-square">
                         <img src="${product.image}" alt="${product.name}" class="object-contain w-full h-full">
@@ -103,10 +84,6 @@ function renderProducts() {
             </div>
         `).join('');
     }
-}
-
-function scrollCategories(amount) {
-    categoriesContainerEl.scrollBy({ left: amount, behavior: 'smooth' });
 }
 
 function scrollProducts(category, amount) {
@@ -284,7 +261,9 @@ document.getElementById('whatsappButton').addEventListener('click', () => {
     window.open('https://wa.me/5493816891534', '_blank');
 });
 
-document.getElementById('closeWhatsappNotification').addEventListener('click', () => {
+document.getElementById('closeWhatsappNotification').addEventListener('click', ()
+
+ => {
     document.getElementById('whatsappNotification').classList.add('hidden');
 });
 
@@ -315,7 +294,6 @@ setInterval(updateBanner, 5000);
 updateHero();
 setInterval(updateHero, 5000);
 
-renderCategories();
 renderProducts();
 
 updateAdvertisingBanner();
