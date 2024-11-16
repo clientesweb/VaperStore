@@ -223,11 +223,11 @@
        <!-- Hero images will be dynamically inserted here -->
    </div>
 
-   <!-- New Advertising Banner without background image -->
-   <div class="gradient-bg p-8 text-center text-white">
-       <h2 class="text-3xl font-bold mb-4">¡Ofertas Especiales!</h2>
-       <p class="text-xl mb-4">Descubre nuestras increíbles promociones en vapes y líquidos.</p>
-       <a href="#" class="inline-block bg-white text-primary font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition-colors">Ver Ofertas</a>
+   <!-- New Advertising Banner without background image (reduced height) -->
+   <div class="gradient-bg p-6 text-center text-white">
+       <h2 class="text-2xl font-bold mb-2">¡Ofertas Especiales!</h2>
+       <p class="text-lg mb-2">Descubre nuestras increíbles promociones en vapes y líquidos.</p>
+       <a href="#" class="inline-block bg-white text-primary font-bold py-2 px-4 rounded-full hover:bg-gray-100 transition-colors">Ver Ofertas</a>
    </div>
 
    <!-- Product Sections -->
@@ -261,9 +261,10 @@
        </div>
    </section>
 
-   <!-- New Advertising Banner -->
-   <div id="advertisingBanner" class="gradient-bg p-8 text-center text-white">
-       <p id="advertisingMessage" class="text-2xl font-bold mb-4"></p>
+   <!-- New Advertising Banner (with background image and gradient text) -->
+   <div id="advertisingBanner" class="p-8 text-center relative" style="background-image: url('img/banner-bg.jpg'); background-size: cover; background-position: center;">
+       <div class="absolute inset-0 bg-black opacity-50"></div>
+       <p id="advertisingMessage" class="text-3xl font-bold mb-4 relative z-10 gradient-text"></p>
    </div>
 
    <section id="vapes_desechables" class="container mx-auto px-4 py-12">
@@ -381,7 +382,7 @@
                    </li>
                    <li class="flex items-center text-sm text-gray-200">
                        <i class="fas fa-envelope mr-2 h-4 w-4"></i>
-                       info@vapeshoptucuman.com
+                       <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="01686f676e417760716472696e71757462746c606f2f626e6c">[email&#160;protected]</a>
                    </li>
                </ul>
            </div>
@@ -525,6 +526,6 @@
    </div>
 </div>
 
-<script src="script.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
 </html>
