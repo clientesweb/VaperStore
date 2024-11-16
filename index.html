@@ -7,493 +7,498 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#4A9B8F',
-                    secondary: '#6B4C7D',
-                    'primary-dark': '#3A7A70',
-                    'secondary-dark': '#523B60'
-                }
-            }
-        }
-    }
+   tailwind.config = {
+       theme: {
+           extend: {
+               colors: {
+                   primary: '#4A9B8F',
+                   secondary: '#6B4C7D',
+                   'primary-dark': '#3A7A70',
+                   'secondary-dark': '#523B60'
+               }
+           }
+       }
+   }
 </script>
 <style>
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    
-    /* Preloader */
-    #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .loader {
-        width: 50px;
-        height: 50px;
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #4A9B8F;
-        border-right: 5px solid #6B4C7D;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
+   .scrollbar-hide::-webkit-scrollbar {
+       display: none;
+   }
+   .scrollbar-hide {
+       -ms-overflow-style: none;
+       scrollbar-width: none;
+   }
+   
+   /* Preloader */
+   #preloader {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background: white;
+       z-index: 9999;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .loader {
+       width: 50px;
+       height: 50px;
+       border: 5px solid #f3f3f3;
+       border-top: 5px solid #4A9B8F;
+       border-right: 5px solid #6B4C7D;
+       border-radius: 50%;
+       animation: spin 1s linear infinite;
+   }
+   
+   @keyframes spin {
+       0% { transform: rotate(0deg); }
+       100% { transform: rotate(360deg); }
+   }
 
-    .gradient-text {
-        background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
+   .gradient-text {
+       background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+   }
 
-    /* Menu icon animation */
-    .menu-icon {
-        transition: transform 0.3s ease;
-    }
-    .menu-icon.open {
-        transform: rotate(90deg);
-    }
+   /* Menu icon animation */
+   .menu-icon {
+       transition: transform 0.3s ease;
+   }
+   .menu-icon.open {
+       transform: rotate(90deg);
+   }
 
-    /* Product card hover effects */
-    .product-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+   /* Product card hover effects */
+   .product-card {
+       transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+   .product-card:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+   }
 
-    /* WhatsApp logo animation */
-    .whatsapp-logo {
-        animation: pulse 2s infinite;
-    }
+   /* WhatsApp logo animation */
+   .whatsapp-logo {
+       animation: pulse 2s infinite;
+   }
 
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
+   @keyframes pulse {
+       0% {
+           transform: scale(1);
+       }
+       50% {
+           transform: scale(1.1);
+       }
+       100% {
+           transform: scale(1);
+       }
+   }
 
-    /* Product slider styles */
-    .product-slider {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
+   /* Product slider styles */
+   .product-slider {
+       scroll-behavior: smooth;
+       -webkit-overflow-scrolling: touch;
+   }
 
-    .product-slider-container {
-        position: relative;
-    }
+   .product-slider-container {
+       position: relative;
+   }
 
-    .slider-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+   .slider-button {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       z-index: 10;
+       background: rgba(255, 255, 255, 0.9);
+       border-radius: 50%;
+       width: 40px;
+       height: 40px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+       cursor: pointer;
+       transition: all 0.3s ease;
+   }
 
-    .slider-button:hover {
-        background: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+   .slider-button:hover {
+       background: white;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   }
 
-    .slider-button.prev {
-        left: 0;
-    }
+   .slider-button.prev {
+       left: 0;
+   }
 
-    .slider-button.next {
-        right: 0;
-    }
+   .slider-button.next {
+       right: 0;
+   }
+
+   /* New gradient background for advertising banner */
+   .gradient-bg {
+       background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
+   }
 </style>
 </head>
 <body class="flex min-h-screen flex-col">
 <!-- Preloader -->
 <div id="preloader">
-    <div class="loader"></div>
+   <div class="loader"></div>
 </div>
 
 <!-- Top Banner -->
-<div id="topBanner" class="bg-primary p-2 text-center text-white relative">
-    <p class="text-sm">
-        <span id="bannerMessage"></span>
-        <a href="#" class="underline">COMPRAR AHORA</a>
-    </p>
-    <button id="closeBanner" class="absolute right-2 top-2 text-white hover:bg-primary-dark p-1">
-        <i class="fas fa-times h-4 w-4"></i>
-    </button>
+<div id="topBanner" class="gradient-bg p-2 text-center text-white relative">
+   <p class="text-sm">
+       <span id="bannerMessage"></span>
+       <a href="#" class="underline">COMPRAR AHORA</a>
+   </p>
+   <button id="closeBanner" class="absolute right-2 top-2 text-white hover:bg-primary-dark p-1">
+       <i class="fas fa-times h-4 w-4"></i>
+   </button>
 </div>
 
 <!-- Header -->
 <header class="border-b sticky top-0 bg-white z-50">
-    <div class="container mx-auto flex items-center justify-between px-4 py-4">
-        <button id="mobileMenuButton" class="text-gray-600 hover:text-primary lg:hidden">
-            <i class="fas fa-bars h-5 w-5 menu-icon"></i>
-        </button>
+   <div class="container mx-auto flex items-center justify-between px-4 py-4">
+       <button id="mobileMenuButton" class="text-gray-600 hover:text-primary lg:hidden">
+           <i class="fas fa-bars h-5 w-5 menu-icon"></i>
+       </button>
 
-        <nav class="hidden lg:flex space-x-6">
-            <a href="#vapes_recargables" class="text-sm font-medium hover:text-primary">VAPES RECARGABLES</a>
-            <a href="#liquidos" class="text-sm font-medium hover:text-primary">LIQUIDOS</a>
-            <a href="#vapes_desechables" class="text-sm font-medium hover:text-primary">VAPES DESECHABLES</a>
-            <a href="#resistencias" class="text-sm font-medium hover:text-primary">RESISTENCIAS</a>
-        </nav>
+       <nav class="hidden lg:flex space-x-6">
+           <a href="#vapes_recargables" class="text-sm font-medium hover:text-primary">VAPES RECARGABLES</a>
+           <a href="#liquidos" class="text-sm font-medium hover:text-primary">LIQUIDOS</a>
+           <a href="#vapes_desechables" class="text-sm font-medium hover:text-primary">VAPES DESECHABLES</a>
+           <a href="#resistencias" class="text-sm font-medium hover:text-primary">RESISTENCIAS</a>
+       </nav>
 
-        <a href="/" class="flex items-center justify-center flex-grow lg:flex-grow-0">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
-                 alt="Vapes Shop Tucumán" 
-                 class="h-20 w-auto">
-        </a>
+       <a href="/" class="flex items-center justify-center flex-grow lg:flex-grow-0">
+           <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
+                alt="Vapes Shop Tucumán" 
+                class="h-20 w-auto">
+       </a>
 
-        <div class="flex items-center space-x-4">
-            <button id="cartButton" class="text-gray-600 hover:text-primary relative">
-                <i class="fas fa-shopping-cart h-5 w-5"></i>
-                <span id="cartItemCount" class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-xs text-white hidden"></span>
-            </button>
-        </div>
-    </div>
+       <div class="flex items-center space-x-4">
+           <button id="cartButton" class="text-gray-600 hover:text-primary relative">
+               <i class="fas fa-shopping-cart h-5 w-5"></i>
+               <span id="cartItemCount" class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-xs text-white hidden"></span>
+           </button>
+       </div>
+   </div>
 </header>
 
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
-    <div class="bg-white h-full w-64 p-4">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold gradient-text">Menú</h2>
-            <button id="closeMobileMenu" class="text-gray-600 hover:text-primary">
-                <i class="fas fa-times h-5 w-5"></i>
-            </button>
-        </div>
-        <nav class="flex flex-col space-y-4">
-            <a href="#vapes_recargables" class="text-sm font-medium hover:text-primary">VAPES RECARGABLES</a>
-            <a href="#liquidos" class="text-sm font-medium hover:text-primary">LIQUIDOS</a>
-            <a href="#vapes_desechables" class="text-sm font-medium hover:text-primary">VAPES DESECHABLES</a>
-            <a href="#resistencias" class="text-sm font-medium hover:text-primary">RESISTENCIAS</a>
-        </nav>
-    </div>
+   <div class="bg-white h-full w-64 p-4">
+       <div class="flex justify-between items-center mb-4">
+           <h2 class="text-xl font-bold gradient-text">Menú</h2>
+           <button id="closeMobileMenu" class="text-gray-600 hover:text-primary">
+               <i class="fas fa-times h-5 w-5"></i>
+           </button>
+       </div>
+       <nav class="flex flex-col space-y-4">
+           <a href="#vapes_recargables" class="text-sm font-medium hover:text-primary">VAPES RECARGABLES</a>
+           <a href="#liquidos" class="text-sm font-medium hover:text-primary">LIQUIDOS</a>
+           <a href="#vapes_desechables" class="text-sm font-medium hover:text-primary">VAPES DESECHABLES</a>
+           <a href="#resistencias" class="text-sm font-medium hover:text-primary">RESISTENCIAS</a>
+       </nav>
+   </div>
 </div>
 
 <main>
-    <!-- Hero Banner -->
-    <div id="hero" class="relative h-[500px] w-full overflow-hidden">
-        <!-- Hero images will be dynamically inserted here -->
-    </div>
+   <!-- Hero Banner -->
+   <div id="hero" class="relative h-[500px] w-full overflow-hidden">
+       <!-- Hero images will be dynamically inserted here -->
+   </div>
 
-    <!-- Product Sections -->
-    <section id="vapes_recargables" class="container mx-auto px-4 py-12">
-        <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES RECARGABLES</h2>
-        <div class="product-slider-container">
-            <button class="slider-button prev" onclick="scrollProducts('vapes_recargables', -300)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_recargablesContainer">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <button class="slider-button next" onclick="scrollProducts('vapes_recargables', 300)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </section>
+   <!-- New Advertising Banner -->
+   <div id="advertisingBanner" class="gradient-bg p-8 text-center text-white">
+       <p id="advertisingMessage" class="text-2xl font-bold mb-4"></p>
+   </div>
 
-    <section id="liquidos" class="container mx-auto px-4 py-12">
-        <h2 class="mb-8 text-center text-2xl font-bold gradient-text">LIQUIDOS</h2>
-        <div class="product-slider-container">
-            <button class="slider-button prev" onclick="scrollProducts('liquidos', -300)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="liquidosContainer">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <button class="slider-button next" onclick="scrollProducts('liquidos', 300)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </section>
-     
-    <!-- Advertising Banner -->
-    <div id="advertisingBanner" class="bg-cover bg-center p-8 text-center text-white">
-        <p id="advertisingMessage" class="text-2xl font-bold mb-4"></p>
-    </div>
+   <!-- Product Sections -->
+   <section id="vapes_recargables" class="container mx-auto px-4 py-12">
+       <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES RECARGABLES</h2>
+       <div class="product-slider-container">
+           <button class="slider-button prev" onclick="scrollProducts('vapes_recargables', -300)">
+               <i class="fas fa-chevron-left"></i>
+           </button>
+           <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_recargablesContainer">
+               <!-- Products will be dynamically inserted here -->
+           </div>
+           <button class="slider-button next" onclick="scrollProducts('vapes_recargables', 300)">
+               <i class="fas fa-chevron-right"></i>
+           </button>
+       </div>
+   </section>
 
-    <section id="vapes_desechables" class="container mx-auto px-4 py-12">
-        <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES DESECHABLES</h2>
-        <div class="product-slider-container">
-            <button class="slider-button prev" onclick="scrollProducts('vapes_desechables', -300)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_desechablesContainer">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <button class="slider-button next" onclick="scrollProducts('vapes_desechables', 300)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </section>
+   <section id="liquidos" class="container mx-auto px-4 py-12">
+       <h2 class="mb-8 text-center text-2xl font-bold gradient-text">LIQUIDOS</h2>
+       <div class="product-slider-container">
+           <button class="slider-button prev" onclick="scrollProducts('liquidos', -300)">
+               <i class="fas fa-chevron-left"></i>
+           </button>
+           <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="liquidosContainer">
+               <!-- Products will be dynamically inserted here -->
+           </div>
+           <button class="slider-button next" onclick="scrollProducts('liquidos', 300)">
+               <i class="fas fa-chevron-right"></i>
+           </button>
+       </div>
+   </section>
 
-    <section id="resistencias" class="container mx-auto px-4 py-12">
-        <h2 class="mb-8 text-center text-2xl font-bold gradient-text">RESISTENCIAS</h2>
-        <div class="product-slider-container">
-            <button class="slider-button prev" onclick="scrollProducts('resistencias', -300)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="resistenciasContainer">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <button class="slider-button next" onclick="scrollProducts('resistencias', 300)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </section>
+   <section id="vapes_desechables" class="container mx-auto px-4 py-12">
+       <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES DESECHABLES</h2>
+       <div class="product-slider-container">
+           <button class="slider-button prev" onclick="scrollProducts('vapes_desechables', -300)">
+               <i class="fas fa-chevron-left"></i>
+           </button>
+           <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_desechablesContainer">
+               <!-- Products will be dynamically inserted here -->
+           </div>
+           <button class="slider-button next" onclick="scrollProducts('vapes_desechables', 300)">
+               <i class="fas fa-chevron-right"></i>
+           </button>
+       </div>
+   </section>
 
-    <!-- ELF BAR Promotional Section -->
-    <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 mb-16">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="space-y-6">
-                    <h2 class="text-4xl font-bold text-gray-800">¡ELF BAR LLEGO PARA ACOMPAÑARTE EN TODO MOMENTO!</h2>
-                    <p class="text-xl text-gray-600">TRENDING</p>
-                </div>
-                <div class="relative">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-090532-Fz0q5rquvtxpOfTEII9oCzmDwot4fO.png" 
-                         alt="ELF BAR Collection" 
-                         class="w-full rounded-lg shadow-xl">
-                </div>
-            </div>
-        </div>
-    </section>
+   <section id="resistencias" class="container mx-auto px-4 py-12">
+       <h2 class="mb-8 text-center text-2xl font-bold gradient-text">RESISTENCIAS</h2>
+       <div class="product-slider-container">
+           <button class="slider-button prev" onclick="scrollProducts('resistencias', -300)">
+               <i class="fas fa-chevron-left"></i>
+           </button>
+           <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="resistenciasContainer">
+               <!-- Products will be dynamically inserted here -->
+           </div>
+           <button class="slider-button next" onclick="scrollProducts('resistencias', 300)">
+               <i class="fas fa-chevron-right"></i>
+           </button>
+       </div>
+   </section>
 
-    <!-- Features Section -->
-    <section class="bg-white py-12 mb-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-4">
-                        <i class="fas fa-truck text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">DELIVERY RÁPIDO</h3>
-                    <p class="text-gray-600">A toda Argentina</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">COMPRA SEGURO</h3>
-                    <p class="text-gray-600">Garantía 100%</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-4">
-                        <i class="fas fa-gift text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">PROMOCIONES</h3>
-                    <p class="text-gray-600">Aprovechá nuestras ofertas</p>
-                </div>
-            </div>
-        </div>
-    </section>
+   <!-- ELF BAR Promotional Section -->
+   <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 mb-16">
+       <div class="container mx-auto px-4">
+           <div class="grid md:grid-cols-2 gap-8 items-center">
+               <div class="space-y-6">
+                   <h2 class="text-4xl font-bold text-gray-800">¡ELF BAR LLEGO PARA ACOMPAÑARTE EN TODO MOMENTO!</h2>
+                   <p class="text-xl text-gray-600">TRENDING</p>
+               </div>
+               <div class="relative">
+                   <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-090532-Fz0q5rquvtxpOfTEII9oCzmDwot4fO.png" 
+                        alt="ELF BAR Collection" 
+                        class="w-full rounded-lg shadow-xl">
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Features Section -->
+   <section class="bg-white py-12 mb-16">
+       <div class="container mx-auto px-4">
+           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+               <div class="text-center">
+                   <div class="w-16 h-16 mx-auto mb-4">
+                       <i class="fas fa-truck text-4xl text-primary"></i>
+                   </div>
+                   <h3 class="text-xl font-bold mb-2">DELIVERY RÁPIDO</h3>
+                   <p class="text-gray-600">A toda Argentina</p>
+               </div>
+               <div class="text-center">
+                   <div class="w-16 h-16 mx-auto mb-4">
+                       <i class="fas fa-shield-alt text-4xl text-primary"></i>
+                   </div>
+                   <h3 class="text-xl font-bold mb-2">COMPRA SEGURO</h3>
+                   <p class="text-gray-600">Garantía 100%</p>
+               </div>
+               <div class="text-center">
+                   <div class="w-16 h-16 mx-auto mb-4">
+                       <i class="fas fa-gift text-4xl text-primary"></i>
+                   </div>
+                   <h3 class="text-xl font-bold mb-2">PROMOCIONES</h3>
+                   <p class="text-gray-600">Aprovechá nuestras ofertas</p>
+               </div>
+           </div>
+       </div>
+   </section>
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
-                     alt="Vapes Shop Logo" 
-                     class="h-20 w-auto mb-4">
-                <p class="text-sm text-gray-400">
-                    La mejor experiencia en vapers. Importados de alta calidad.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
-                <ul class="space-y-2">
-                    <li><a href="#vapes_recargables" class="text-sm text-gray-400 hover:text-white transition-colors">Vapes Recargables</a></li>
-                    <li><a href="#liquidos" class="text-sm text-gray-400 hover:text-white transition-colors">Líquidos</a></li>
-                    <li><a href="#vapes_desechables" class="text-sm text-gray-400 hover:text-white transition-colors">Vapes Desechables</a></li>
-                    <li><a href="#resistencias" class="text-sm text-gray-400 hover:text-white transition-colors">Resistencias</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Contacto</h3>
-                <ul class="space-y-2">
-                    <li class="flex items-center text-sm text-gray-400">
-                        <i class="fas fa-map-marker-alt mr-2 h-4 w-4"></i>
-                        Tucumán, Argentina
-                    </li>
-                    <li class="flex items-center text-sm text-gray-400">
-                        <i class="fas fa-phone mr-2 h-4 w-4"></i>
-                        +54 9 381 689-1534
-                    </li>
-                    <li class="flex items-center text-sm text-gray-400">
-                        <i class="fab fa-whatsapp mr-2 h-4 w-4"></i>
-                        WhatsApp: +54 9 381 689-1534
-                    </li>
-                    <li class="flex items-center text-sm text-gray-400">
-                        <i class="fas fa-envelope mr-2 h-4 w-4"></i>
-                        info@vapeshoptucuman.com
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
-                <div class="flex space-x-4 mb-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-facebook h-6 w-6"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram h-6 w-6"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter h-6 w-6"></i>
-                    </a>
-                </div>
-                <h4 class="text-sm font-semibold mb-2">Suscríbete a nuestro newsletter</h4>
-                <form class="flex flex-col sm:flex-row gap-2">
-                    <input type="email" placeholder="Tu email" class="flex-grow px-3 py-2 text-gray-900 rounded-md focus:outline-none">
-                    <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors">Suscribir</button>
-                </form>
-            </div>
-        </div>
-        <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>© 2023 Vapes Shop Tucumán. Todos los derechos reservados.</p>
-            <p class="mt-2">Powered by <a href="https://dualitydomain.com" class="hover:text-primary transition-colors">Duality Domain</a></p>
-        </div>
-    </div>
+<footer class="gradient-bg text-white py-16">
+   <div class="container mx-auto px-4">
+       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+           <div>
+               <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
+                    alt="Vapes Shop Logo" 
+                    class="h-20 w-auto mb-4">
+               <p class="text-sm text-gray-200">
+                   La mejor experiencia en vapers. Importados de alta calidad.
+               </p>
+           </div>
+           <div>
+               <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+               <ul class="space-y-2">
+                   <li><a href="#vapes_recargables" class="text-sm text-gray-200 hover:text-white transition-colors">Vapes Recargables</a></li>
+                   <li><a href="#liquidos" class="text-sm text-gray-200 hover:text-white transition-colors">Líquidos</a></li>
+                   <li><a href="#vapes_desechables" class="text-sm text-gray-200 hover:text-white transition-colors">Vapes Desechables</a></li>
+                   <li><a href="#resistencias" class="text-sm text-gray-200 hover:text-white transition-colors">Resistencias</a></li>
+               </ul>
+           </div>
+           <div>
+               <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+               <ul class="space-y-2">
+                   <li class="flex items-center text-sm text-gray-200">
+                       <i class="fas fa-map-marker-alt mr-2 h-4 w-4"></i>
+                       Tucumán, Argentina
+                   </li>
+                   <li class="flex items-center text-sm text-gray-200">
+                       <i class="fas fa-phone mr-2 h-4 w-4"></i>
+                       +54 9 381 689-1534
+                   </li>
+                   <li class="flex items-center text-sm text-gray-200">
+                       <i class="fab fa-whatsapp mr-2 h-4 w-4"></i>
+                       WhatsApp: +54 9 381 689-1534
+                   </li>
+                   <li class="flex items-center text-sm text-gray-200">
+                       <i class="fas fa-envelope mr-2 h-4 w-4"></i>
+                       info@vapeshoptucuman.com
+                   </li>
+               </ul>
+           </div>
+           <div>
+               <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+               <div class="flex space-x-4 mb-4">
+                   <a href="#" class="text-gray-200 hover:text-white transition-colors">
+                       <i class="fab fa-facebook h-6 w-6"></i>
+                   </a>
+                   <a href="#" class="text-gray-200 hover:text-white transition-colors">
+                       <i class="fab fa-instagram h-6 w-6"></i>
+                   </a>
+                   <a href="#" class="text-gray-200 hover:text-white transition-colors">
+                       <i class="fab fa-twitter h-6 w-6"></i>
+                   </a>
+               </div>
+               <h4 class="text-sm font-semibold mb-2">Suscríbete a nuestro newsletter</h4>
+               <form class="flex flex-col sm:flex-row gap-2">
+                   <input type="email" placeholder="Tu email" class="flex-grow px-3 py-2 text-gray-900 rounded-md focus:outline-none">
+                   <button type="submit" class="bg-white text-primary px-4 py-2 rounded-md hover:bg-gray-100 transition-colors">Suscribir</button>
+               </form>
+           </div>
+       </div>
+       <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-200">
+           <p>© 2023 Vapes Shop Tucumán. Todos los derechos reservados.</p>
+           <p class="mt-2">Powered by <a href="https://dualitydomain.com" class="hover:text-white transition-colors">Duality Domain</a></p>
+       </div>
+   </div>
 </footer>
 
 <!-- Checkout Form Modal -->
 <div id="checkoutModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden overflow-y-auto">
-    <div class="bg-white w-full max-w-md mx-auto mt-10 mb-10 p-6 rounded-lg">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold gradient-text">Finalizar Compra</h2>
-            <button id="closeCheckoutModal" class="text-gray-600 hover:text-primary">
-                <i class="fas fa-times h-5 w-5"></i>
-            </button>
-        </div>
-        <form id="checkoutForm" class="space-y-4">
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Nombre</label>
-                <input type="text" name="nombre" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Apellido</label>
-                <input type="text" name="apellido" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Teléfono</label>
-                <input type="tel" name="telefono" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Método de envío</label>
-                <select name="envio" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                    <option value="">Seleccionar...</option>
-                    <option value="correo">Correo Argentino</option>
-                    <option value="andreani">Andreani</option>
-                    <option value="retiro">Retiro en local</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Método de pago</label>
-                <select name="pago" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                    <option value="">Seleccionar...</option>
-                    <option value="transferencia">Transferencia</option>
-                    <option value="mercadopago">Mercado Pago</option>
-                    <option value="rapipago">Rapipago</option>
-                    <option value="pagofacil">Pago Fácil</option>
-                    <option value="efectivo">Efectivo</option>
-                </select>
-            </div>
-            <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors">
-                Enviar pedido por WhatsApp
-            </button>
-        </form>
-    </div>
+   <div class="bg-white w-full max-w-md mx-auto mt-10 mb-10 p-6 rounded-lg">
+       <div class="flex justify-between items-center mb-4">
+           <h2 class="text-xl font-bold gradient-text">Finalizar Compra</h2>
+           <button id="closeCheckoutModal" class="text-gray-600 hover:text-primary">
+               <i class="fas fa-times h-5 w-5"></i>
+           </button>
+       </div>
+       <form id="checkoutForm" class="space-y-4">
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Nombre</label>
+               <input type="text" name="nombre" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+           </div>
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Apellido</label>
+               <input type="text" name="apellido" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+           </div>
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Email</label>
+               <input type="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+           </div>
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Teléfono</label>
+               <input type="tel" name="telefono" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+           </div>
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Método de envío</label>
+               <select name="envio" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                   <option value="">Seleccionar...</option>
+                   <option value="correo">Correo Argentino</option>
+                   <option value="andreani">Andreani</option>
+                   <option value="retiro">Retiro en local</option>
+               </select>
+           </div>
+           <div>
+               <label class="block text-sm font-medium text-gray-700">Método de pago</label>
+               <select name="pago" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                   <option value="">Seleccionar...</option>
+                   <option value="transferencia">Transferencia</option>
+                   <option value="mercadopago">Mercado Pago</option>
+                   <option value="rapipago">Rapipago</option>
+                   <option value="pagofacil">Pago Fácil</option>
+                   <option value="efectivo">Efectivo</option>
+               </select>
+           </div>
+           <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors">
+               Enviar pedido por WhatsApp
+           </button>
+       </form>
+   </div>
 </div>
 
 <!-- Cart Modal -->
 <div id="cartModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
-    <div class="bg-white h-full w-full md:w-96 absolute right-0 p-4">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
-            <button id="closeCart" class="text-gray-600 hover:text-primary">
-                <i class="fas fa-times h-5 w-5"></i>
-            </button>
-        </div>
-        <div id="cartItems" class="space-y-4">
-            <!-- Cart items will be dynamically inserted here -->
-        </div>
-        <div class="border-t pt-4 mt-4">
-            <p class="font-bold">Total: $<span id="cartTotal">0</span></p>
-        </div>
-        <button id="checkoutButton" class="w-full bg-primary text-white py-2 px-4 rounded mt-4 hover:bg-primary-dark">
-            Proceder al pago
-        </button>
-    </div>
+   <div class="bg-white h-full w-full md:w-96 absolute right-0 p-4">
+       <div class="flex justify-between items-center mb-4">
+           <h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
+           <button id="closeCart" class="text-gray-600 hover:text-primary">
+               <i class="fas fa-times h-5 w-5"></i>
+           </button>
+       </div>
+       <div id="cartItems" class="space-y-4">
+           <!-- Cart items will be dynamically inserted here -->
+       </div>
+       <div class="border-t pt-4 mt-4">
+           <p class="font-bold">Total: $<span id="cartTotal">0</span></p>
+       </div>
+       <button id="checkoutButton" class="w-full bg-primary text-white py-2 px-4 rounded mt-4 hover:bg-primary-dark">
+           Proceder al pago
+       </button>
+   </div>
 </div>
 
 <!-- Product Modal -->
 <div id="productModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
-    <div class="bg-white w-full max-w-md mx-auto mt-20 p-4 rounded-lg">
-        <div class="flex justify-between items-center mb-4">
-            <h2 id="productModalTitle" class="text-xl font-bold gradient-text"></h2>
-            <button id="closeProductModal" class="text-gray-600 hover:text-primary">
-                <i class="fas fa-times h-5 w-5"></i>
-            </button>
-        </div>
-        <div id="productModalContent">
-            <!-- Product details will be dynamically inserted here -->
-        </div>
-    </div>
+   <div class="bg-white w-full max-w-md mx-auto mt-20 p-4 rounded-lg">
+       <div class="flex justify-between items-center mb-4">
+           <h2 id="productModalTitle" class="text-xl font-bold gradient-text"></h2>
+           <button id="closeProductModal" class="text-gray-600 hover:text-primary">
+               <i class="fas fa-times h-5 w-5"></i>
+           </button>
+       </div>
+       <div id="productModalContent">
+           <!-- Product details will be dynamically inserted here -->
+       </div>
+   </div>
 </div>
 
 <!-- WhatsApp Button and Notification -->
 <div class="fixed bottom-4 right-4 z-40">
-    <button id="whatsappButton" class="bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full p-4 shadow-lg transition-colors">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
-             alt="WhatsApp Logo" 
-             class="h-6 w-6 whatsapp-logo">
-    </button>
-    <div id="whatsappNotification" class="absolute bottom-full right-0 mb-2 bg-gradient-to-r from-primary to-secondary p-4 rounded-lg shadow-lg hidden w-64">
-        <p class="text-sm font-medium mb-2 text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
-        <button id="closeWhatsappNotification" class="text-sm text-white hover:text-gray-200 transition-colors">
-            Cerrar
-        </button>
-    </div>
+   <button id="whatsappButton" class="bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full p-4 shadow-lg transition-colors">
+       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241116-070459-XZHf8W9LVBicmRjcmBvHRrrqh5lZs5.png" 
+            alt="WhatsApp Logo" 
+            class="h-6 w-6 whatsapp-logo">
+   </button>
+   <div id="whatsappNotification" class="absolute bottom-full right-0 mb-2 bg-gradient-to-r from-primary to-secondary p-4 rounded-lg shadow-lg hidden w-64">
+       <p class="text-sm font-medium mb-2 text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
+       <button id="closeWhatsappNotification" class="text-sm text-white hover:text-gray-200 transition-colors">
+           Cerrar
+       </button>
+   </div>
 </div>
 
 <script src="script.js"></script>
