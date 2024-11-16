@@ -143,6 +143,14 @@
    .gradient-bg {
        background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
    }
+
+   /* Gradient icons */
+   .gradient-icon {
+       background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+   }
 </style>
 </head>
 <body class="flex min-h-screen flex-col">
@@ -218,6 +226,13 @@
    <!-- New Advertising Banner -->
    <div id="advertisingBanner" class="gradient-bg p-8 text-center text-white">
        <p id="advertisingMessage" class="text-2xl font-bold mb-4"></p>
+   </div>
+
+   <!-- New Advertising Banner without background image -->
+   <div class="gradient-bg p-8 text-center text-white">
+       <h2 class="text-3xl font-bold mb-4">¡Ofertas Especiales!</h2>
+       <p class="text-xl mb-4">Descubre nuestras increíbles promociones en vapes y líquidos.</p>
+       <a href="#" class="inline-block bg-white text-primary font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition-colors">Ver Ofertas</a>
    </div>
 
    <!-- Product Sections -->
@@ -298,27 +313,27 @@
        </div>
    </section>
 
-   <!-- Features Section -->
+   <!-- Features Section with Gradient Icons -->
    <section class="bg-white py-12 mb-16">
        <div class="container mx-auto px-4">
            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                <div class="text-center">
                    <div class="w-16 h-16 mx-auto mb-4">
-                       <i class="fas fa-truck text-4xl text-primary"></i>
+                       <i class="fas fa-truck text-4xl gradient-icon"></i>
                    </div>
                    <h3 class="text-xl font-bold mb-2">DELIVERY RÁPIDO</h3>
                    <p class="text-gray-600">A toda Argentina</p>
                </div>
                <div class="text-center">
                    <div class="w-16 h-16 mx-auto mb-4">
-                       <i class="fas fa-shield-alt text-4xl text-primary"></i>
+                       <i class="fas fa-shield-alt text-4xl gradient-icon"></i>
                    </div>
                    <h3 class="text-xl font-bold mb-2">COMPRA SEGURO</h3>
                    <p class="text-gray-600">Garantía 100%</p>
                </div>
                <div class="text-center">
                    <div class="w-16 h-16 mx-auto mb-4">
-                       <i class="fas fa-gift text-4xl text-primary"></i>
+                       <i class="fas fa-gift text-4xl gradient-icon"></i>
                    </div>
                    <h3 class="text-xl font-bold mb-2">PROMOCIONES</h3>
                    <p class="text-gray-600">Aprovechá nuestras ofertas</p>
@@ -390,7 +405,16 @@
                </form>
            </div>
        </div>
-       <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-200">
+       <div class="mt-8 border-t border-gray-700 pt-8">
+           <h3 class="text-lg font-semibold mb-4">Políticas</h3>
+           <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+               <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Políticas de Privacidad y Cookies</a></li>
+               <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Términos y Condiciones de Uso</a></li>
+               <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Política de Garantía</a></li>
+               <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Políticas de Envío</a></li>
+           </ul>
+       </div>
+       <div class="mt-8 text-center text-sm text-gray-200">
            <p>© 2023 Vapes Shop Tucumán. Todos los derechos reservados.</p>
            <p class="mt-2">Powered by <a href="https://dualitydomain.com" class="hover:text-white transition-colors">Duality Domain</a></p>
        </div>
