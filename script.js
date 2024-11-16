@@ -35,9 +35,16 @@ const bannerMessages = [
     "¡Ofertas especiales este fin de semana!"
 ];
 
+const heroImages = [
+    "/placeholder.svg?height=500&width=1000",
+    "/placeholder.svg?height=500&width=1000",
+    "/placeholder.svg?height=500&width=1000"
+];
+
 // State
 let cart = [];
 let currentBanner = 0;
+let currentHeroImage = 0;
 
 // DOM Elements
 const bannerMessageEl = document.getElementById('bannerMessage');
@@ -45,6 +52,7 @@ const cartItemCountEl = document.getElementById('cartItemCount');
 const cartItemsEl = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
 const categoriesContainerEl = document.getElementById('categoriesContainer');
+const heroEl = document.getElementById('hero');
 const productContainers = {
     vapes_recargables: document.getElementById('vapes_recargablesContainer'),
     liquidos: document.getElementById('liquidosContainer'),
@@ -56,6 +64,15 @@ const productContainers = {
 function updateBanner() {
     bannerMessageEl.textContent = bannerMessages[currentBanner];
     currentBanner = (currentBanner + 1) % bannerMessages.length;
+}
+
+function updateHero() {
+    heroEl.style.backgroundImage = `url('${heroImages[currentHeroImage]}')`;
+    heroEl.style.backgroundSize = 'cover';
+    heroEl.style.backgroundPosition =
+
+ 'center';
+    currentHeroImage = (currentHeroImage + 1) % heroImages.length;
 }
 
 function renderCategories() {
@@ -271,6 +288,9 @@ document.getElementById('closeCheckoutModal').addEventListener('click', function
 // Initialization
 updateBanner();
 setInterval(updateBanner, 5000);
+
+updateHero();
+setInterval(updateHero, 5000);
 
 renderCategories();
 renderProducts();
