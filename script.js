@@ -6,7 +6,6 @@ const categories = [
     { id: 4, name: "RESISTENCIAS", image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "resistencias" },
 ];
 
-
 const products = {
     vapes_recargables: [
         { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable de larga duración." },
@@ -37,7 +36,7 @@ const bannerMessages = [
 ];
 
 const heroImages = [
-    "/https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
 ];
@@ -70,9 +69,7 @@ function updateBanner() {
 function updateHero() {
     heroEl.style.backgroundImage = `url('${heroImages[currentHeroImage]}')`;
     heroEl.style.backgroundSize = 'cover';
-    heroEl.style.backgroundPosition =
-
- 'center';
+    heroEl.style.backgroundPosition = 'center';
     currentHeroImage = (currentHeroImage + 1) % heroImages.length;
 }
 
@@ -92,14 +89,14 @@ function renderCategories() {
 function renderProducts() {
     for (const [category, productList] of Object.entries(products)) {
         productContainers[category].innerHTML = productList.map(product => `
-            <div class="flex-shrink-0 w-64 mr-4 bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="product-card flex-shrink-0 w-64 mr-4 bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="p-4">
                     <div class="relative mb-4 aspect-square">
                         <img src="${product.image}" alt="${product.name}" class="object-contain w-full h-full">
                     </div>
                     <h3 class="text-sm font-medium line-clamp-2">${product.name}</h3>
                     <p class="mt-2 text-lg font-bold">$${product.price.toLocaleString()}</p>
-                    <button class="w-full mt-2 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark" onclick="openProductModal(${product.id}, '${category}')">
+                    <button class="w-full mt-2 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="openProductModal(${product.id}, '${category}')">
                         Ver detalles
                     </button>
                 </div>
@@ -139,7 +136,7 @@ function openProductModal(productId, category) {
                     <button class="bg-gray-200 px-2 py-1 rounded-r" onclick="updateQuantity(${product.id}, 1)">+</button>
                 </div>
             </div>
-            <button class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark" onclick="addToCart(${product.id}, '${category}')">
+            <button class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="addToCart(${product.id}, '${category}')">
                 Agregar al carrito
             </button>
         </div>
@@ -235,16 +232,41 @@ function createWhatsAppMessage(formData) {
     return encodeURIComponent(message);
 }
 
+function updateAdvertisingBanner() {
+    const advertisingBanner = document.getElementById('advertisingBanner');
+    const advertisingMessage = document.getElementById('advertisingMessage');
+    const currentHour = new Date().getHours();
+    let message, backgroundImage;
+
+    if (currentHour >= 6 && currentHour < 12) {
+        message = "¡Oferta matutina! 15% de descuento en todos los vapes recargables";
+        backgroundImage = "url('morning-banner.jpg')";
+    } else if (currentHour >= 12 && currentHour < 18) {
+        message = "¡Especial de la tarde! Compra un líquido y lleva el segundo a mitad de precio";
+        backgroundImage = "url('afternoon-banner.jpg')";
+    } else {
+        message = "¡Oferta nocturna! Envío gratis en compras superiores a $5000";
+        backgroundImage = "url('night-banner.jpg')";
+    }
+
+    advertisingMessage.textContent = message;
+    advertisingBanner.style.backgroundImage = backgroundImage;
+}
+
 // Event Listeners
 document.getElementById('closeBanner').addEventListener('click', () => {
     document.getElementById('topBanner').classList.add('hidden');
 });
 
 document.getElementById('mobileMenuButton').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.remove('hidden');
+    const menuIcon = document.querySelector('.menu-icon');
+    menuIcon.classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('hidden');
 });
 
 document.getElementById('closeMobileMenu').addEventListener('click', () => {
+    const menuIcon = document.querySelector('.menu-icon');
+    menuIcon.classList.remove('open');
     document.getElementById('mobileMenu').classList.add('hidden');
 });
 
@@ -295,6 +317,9 @@ setInterval(updateHero, 5000);
 
 renderCategories();
 renderProducts();
+
+updateAdvertisingBanner();
+setInterval(updateAdvertisingBanner, 3600000); // Update every hour
 
 setTimeout(() => {
     document.getElementById('whatsappNotification').classList.remove('hidden');
