@@ -229,62 +229,61 @@ function updateAdvertisingBanner() {
 }
 
 // Event Listeners
-document.getElementById('closeBanner').addEventListener('click', () => {
-    document.getElementById('topBanner').classList.add('hidden');
-});
-
-document.getElementById('mobileMenuButton').addEventListener('click', () => {
-    const menuIcon = document.querySelector('.menu-icon');
-    menuIcon.classList.toggle('open');
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-});
-
-document.getElementById('closeMobileMenu').addEventListener('click', () => {
-    const menuIcon = document.querySelector('.menu-icon');
-    menuIcon.classList.remove('open');
-    document.getElementById('mobileMenu').classList.add('hidden');
-});
-
-document.getElementById('cartButton').addEventListener('click', () => {
-    document.getElementById('cartModal').classList.remove('hidden');
-});
-
-document.getElementById('closeCart').addEventListener('click', () => {
-    document.getElementById('cartModal').classList.add('hidden');
-});
-
-document.getElementById('closeProductModal').addEventListener('click', closeProductModal);
-
-document.getElementById('whatsappButton').addEventListener('click', () => {
-    window.open('https://wa.me/5493816891534', '_blank');
-});
-
-document.getElementById('closeWhatsappNotification').addEventListener('click', () => {
-    document.getElementById('whatsappNotification').classList.add('hidden');
-});
-
-document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const whatsappMessage = createWhatsAppMessage(formData);
-    window.open(`https://wa.me/5493816891534?text=${whatsappMessage}`, '_blank');
-    document.getElementById('checkoutModal').classList.add('hidden');
-    document.getElementById('cartModal').classList.add('hidden');
-    cart = [];
-    updateCartUI();
-});
-
-document.getElementById('checkoutButton').addEventListener('click', function() {
-    document.getElementById('cartModal').classList.add('hidden');
-    document.getElementById('checkoutModal').classList.remove('hidden');
-});
-
-document.getElementById('closeCheckoutModal').addEventListener('click', function() {
-    document.getElementById('checkoutModal').classList.add('hidden');
-});
-
-// Initialization
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('closeBanner').addEventListener('click', () => {
+        document.getElementById('topBanner').classList.add('hidden');
+    });
+
+    document.getElementById('mobileMenuButton').addEventListener('click', () => {
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.classList.toggle('open');
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    document.getElementById('closeMobileMenu').addEventListener('click', () => {
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.classList.remove('open');
+        document.getElementById('mobileMenu').classList.add('hidden');
+    });
+
+    document.getElementById('cartButton').addEventListener('click', () => {
+        document.getElementById('cartModal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeCart').addEventListener('click', () => {
+        document.getElementById('cartModal').classList.add('hidden');
+    });
+
+    document.getElementById('closeProductModal').addEventListener('click', closeProductModal);
+
+    document.getElementById('whatsappButton').addEventListener('click', () => {
+        window.open('https://wa.me/5493816891534', '_blank');
+    });
+
+    document.getElementById('closeWhatsappNotification').addEventListener('click', () => {
+        document.getElementById('whatsappNotification').classList.add('hidden');
+    });
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const whatsappMessage = createWhatsAppMessage(formData);
+        window.open(`https://wa.me/5493816891534?text=${whatsappMessage}`, '_blank');
+        document.getElementById('checkoutModal').classList.add('hidden');
+        document.getElementById('cartModal').classList.add('hidden');
+        cart = [];
+        updateCartUI();
+    });
+
+    document.getElementById('checkoutButton').addEventListener('click', function() {
+        document.getElementById('cartModal').classList.add('hidden');
+        document.getElementById('checkoutModal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeCheckoutModal').addEventListener('click', function() {
+        document.getElementById('checkoutModal').classList.add('hidden');
+    });
+
     updateBanner();
     setInterval(updateBanner, 5000);
 
@@ -303,3 +302,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove preloader
     document.getElementById('preloader').style.display = 'none';
 });
+
+// For demonstration purposes only (this won't work in a Node.js environment)
+console.log("Script loaded successfully!");
