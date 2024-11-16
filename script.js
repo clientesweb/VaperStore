@@ -1,31 +1,32 @@
 // Data
 const categories = [
-    { id: 1, name: "VAPES RECARGABLES", image: "/placeholder.svg", key: "vapes_recargables" },
-    { id: 2, name: "LIQUIDOS", image: "/placeholder.svg", key: "liquidos" },
-    { id: 3, name: "VAPES DESECHABLES", image: "/placeholder.svg", key: "vapes_desechables" },
-    { id: 4, name: "RESISTENCIAS", image: "/placeholder.svg", key: "resistencias" },
+    { id: 1, name: "VAPES RECARGABLES", image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "vapes_recargables" },
+    { id: 2, name: "LIQUIDOS", image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "liquidos" },
+    { id: 3, name: "VAPES DESECHABLES", image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "vapes_desechables" },
+    { id: 4, name: "RESISTENCIAS", image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", key: "resistencias" },
 ];
+
 
 const products = {
     vapes_recargables: [
-        { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "/placeholder.svg", description: "Vape recargable de larga duración." },
-        { id: 2, name: "VAPE RECHARGEABLE COMPACT", price: 28000, image: "/placeholder.svg", description: "Vape recargable compacto y portátil." },
-        { id: 3, name: "VAPE RECHARGEABLE PRO", price: 42000, image: "/placeholder.svg", description: "Vape recargable con funciones avanzadas." },
+        { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable de larga duración." },
+        { id: 2, name: "VAPE RECHARGEABLE COMPACT", price: 28000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable compacto y portátil." },
+        { id: 3, name: "VAPE RECHARGEABLE PRO", price: 42000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable con funciones avanzadas." },
     ],
     liquidos: [
-        { id: 4, name: "LÍQUIDO PREMIUM FRUTAS DEL BOSQUE", price: 15000, image: "/placeholder.svg", description: "Líquido para vape con sabor a frutas del bosque." },
-        { id: 5, name: "LÍQUIDO MENTOLADO INTENSO", price: 14000, image: "/placeholder.svg", description: "Líquido para vape con sabor mentolado intenso." },
-        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "/placeholder.svg", description: "Líquido para vape con sabor a tabaco suave." },
+        { id: 4, name: "LÍQUIDO PREMIUM FRUTAS DEL BOSQUE", price: 15000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a frutas del bosque." },
+        { id: 5, name: "LÍQUIDO MENTOLADO INTENSO", price: 14000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor mentolado intenso." },
+        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a tabaco suave." },
     ],
     vapes_desechables: [
-        { id: 7, name: "LOST MARY MIXER 30000-ORANGE STRAWBERRY", price: 25000, image: "/placeholder.svg", description: "Vape desechable con sabor a naranja y fresa." },
-        { id: 8, name: "GEEK BAR X 25,000 PUFFS - GRAPEFRUIT", price: 28000, image: "/placeholder.svg", description: "Vape desechable con sabor a pomelo." },
-        { id: 9, name: "LOST MARY MO 20,000 PRO MANGO TWIST", price: 22000, image: "/placeholder.svg", description: "Vape desechable con sabor a mango." },
+        { id: 7, name: "LOST MARY MIXER 30000-ORANGE STRAWBERRY", price: 25000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a naranja y fresa." },
+        { id: 8, name: "GEEK BAR X 25,000 PUFFS - GRAPEFRUIT", price: 28000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a pomelo." },
+        { id: 9, name: "LOST MARY MO 20,000 PRO MANGO TWIST", price: 22000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a mango." },
     ],
     resistencias: [
-        { id: 10, name: "RESISTENCIA 0.15 OHM", price: 5000, image: "/placeholder.svg", description: "Resistencia de 0.15 ohm para vapes recargables." },
-        { id: 11, name: "RESISTENCIA 0.5 OHM", price: 4500, image: "/placeholder.svg", description: "Resistencia de 0.5 ohm para vapes recargables." },
-        { id: 12, name: "RESISTENCIA 1.0 OHM", price: 4000, image: "/placeholder.svg", description: "Resistencia de 1.0 ohm para vapes recargables." },
+        { id: 10, name: "RESISTENCIA 0.15 OHM", price: 5000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Resistencia de 0.15 ohm para vapes recargables." },
+        { id: 11, name: "RESISTENCIA 0.5 OHM", price: 4500, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Resistencia de 0.5 ohm para vapes recargables." },
+        { id: 12, name: "RESISTENCIA 1.0 OHM", price: 4000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Resistencia de 1.0 ohm para vapes recargables." },
     ],
 };
 
@@ -36,9 +37,9 @@ const bannerMessages = [
 ];
 
 const heroImages = [
-    "/placeholder.svg?height=500&width=1000",
-    "/placeholder.svg?height=500&width=1000",
-    "/placeholder.svg?height=500&width=1000"
+    "/https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
 ];
 
 // State
