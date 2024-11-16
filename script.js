@@ -1,21 +1,19 @@
 // Data
 const products = {
     vapes_recargables: [
-        { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable de larga duración." },
-        { id: 2, name: "VAPE RECHARGEABLE COMPACT", price: 28000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable compacto y portátil." },
-        { id: 3, name: "VAPE RECHARGEABLE PRO", price: 42000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable con funciones avanzadas." },
+        { id: 1, name: "VAPE RECHARGEABLE XL", price: 35000, image: "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable de larga duración." },
+        { id: 2, name: "VAPE RECHARGEABLE COMPACT", price: 28000, image: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable compacto y portátil." },
+        { id: 3, name: "VAPE RECHARGEABLE PRO", price: 42000, image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape recargable con funciones avanzadas." },
     ],
     liquidos: [
         { id: 4, name: "LÍQUIDO PREMIUM FRUTAS DEL BOSQUE", price: 15000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a frutas del bosque." },
         { id: 5, name: "LÍQUIDO MENTOLADO INTENSO", price: 14000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor mentolado intenso." },
-        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxM
-
-jA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a tabaco suave." },
+        { id: 6, name: "LÍQUIDO TABACO SUAVE", price: 13000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Líquido para vape con sabor a tabaco suave." },
     ],
     vapes_desechables: [
-        { id: 7, name: "LOST MARY MIXER 30000-ORANGE STRAWBERRY", price: 25000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a naranja y fresa." },
-        { id: 8, name: "GEEK BAR X 25,000 PUFFS - GRAPEFRUIT", price: 28000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a pomelo." },
-        { id: 9, name: "LOST MARY MO 20,000 PRO MANGO TWIST", price: 22000, image: "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a mango." },
+        { id: 7, name: "LOST MARY MIXER 30000-ORANGE STRAWBERRY", price: 25000, image: "https://images.unsplash.com/photo-1561299593-7633f25dbd5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a naranja y fresa." },
+        { id: 8, name: "GEEK BAR X 25,000 PUFFS - GRAPEFRUIT", price: 28000, image: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a pomelo." },
+        { id: 9, name: "LOST MARY MO 20,000 PRO MANGO TWIST", price: 22000, image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Vape desechable con sabor a mango." },
     ],
     resistencias: [
         { id: 10, name: "RESISTENCIA 0.15 OHM", price: 5000, image: "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80", description: "Resistencia de 0.15 ohm para vapes recargables." },
@@ -31,9 +29,9 @@ const bannerMessages = [
 ];
 
 const heroImages = [
-    "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1624704765325-fd4868c9702e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1560706834-c8b400d29d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
 ];
 
 // State
@@ -108,9 +106,9 @@ function openProductModal(productId, category) {
             <div class="flex items-center justify-between">
                 <label for="quantity" class="text-sm font-medium">Cantidad:</label>
                 <div class="flex items-center">
-                    <button class="bg-gray-200 px-2 py-1 rounded-l" onclick="updateQuantity(${product.id}, -1)">-</button>
+                    <button class="bg-gray-200 px-2 py-1 rounded-l" onclick="updateQuantity(-1)">-</button>
                     <input id="quantity" type="number" class="w-16 text-center border-t border-b" value="1" min="1">
-                    <button class="bg-gray-200 px-2 py-1 rounded-r" onclick="updateQuantity(${product.id}, 1)">+</button>
+                    <button class="bg-gray-200 px-2 py-1 rounded-r" onclick="updateQuantity(1)">+</button>
                 </div>
             </div>
             <button class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="addToCart(${product.id}, '${category}')">
@@ -126,7 +124,7 @@ function closeProductModal() {
     document.getElementById('productModal').classList.add('hidden');
 }
 
-function updateQuantity(productId, change) {
+function updateQuantity(change) {
     const quantityInput = document.getElementById('quantity');
     let newQuantity = parseInt(quantityInput.value) + change;
     if (newQuantity < 1) newQuantity = 1;
@@ -217,13 +215,13 @@ function updateAdvertisingBanner() {
 
     if (currentHour >= 6 && currentHour < 12) {
         message = "¡Oferta matutina! 15% de descuento en todos los vapes recargables";
-        backgroundImage = "url('morning-banner.jpg')";
+        backgroundImage = "url('https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
     } else if (currentHour >= 12 && currentHour < 18) {
         message = "¡Especial de la tarde! Compra un líquido y lleva el segundo a mitad de precio";
-        backgroundImage = "url('afternoon-banner.jpg')";
+        backgroundImage = "url('https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
     } else {
         message = "¡Oferta nocturna! Envío gratis en compras superiores a $5000";
-        backgroundImage = "url('night-banner.jpg')";
+        backgroundImage = "url('https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
     }
 
     advertisingMessage.textContent = message;
@@ -261,9 +259,7 @@ document.getElementById('whatsappButton').addEventListener('click', () => {
     window.open('https://wa.me/5493816891534', '_blank');
 });
 
-document.getElementById('closeWhatsappNotification').addEventListener('click', ()
-
- => {
+document.getElementById('closeWhatsappNotification').addEventListener('click', () => {
     document.getElementById('whatsappNotification').classList.add('hidden');
 });
 
@@ -288,22 +284,22 @@ document.getElementById('closeCheckoutModal').addEventListener('click', function
 });
 
 // Initialization
-updateBanner();
-setInterval(updateBanner, 5000);
+document.addEventListener('DOMContentLoaded', function() {
+    updateBanner();
+    setInterval(updateBanner, 5000);
 
-updateHero();
-setInterval(updateHero, 5000);
+    updateHero();
+    setInterval(updateHero, 5000);
 
-renderProducts();
+    renderProducts();
 
-updateAdvertisingBanner();
-setInterval(updateAdvertisingBanner, 3600000); // Update every hour
+    updateAdvertisingBanner();
+    setInterval(updateAdvertisingBanner, 3600000); // Update every hour
 
-setTimeout(() => {
-    document.getElementById('whatsappNotification').classList.remove('hidden');
-}, 10000);
+    setTimeout(() => {
+        document.getElementById('whatsappNotification').classList.remove('hidden');
+    }, 10000);
 
-// Preloader
-window.addEventListener('load', function() {
+    // Remove preloader
     document.getElementById('preloader').style.display = 'none';
 });
