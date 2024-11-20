@@ -59,9 +59,16 @@ function updateBanner() {
 }
 
 function updateHero() {
-    heroEl.style.backgroundImage = `url('${heroImages[currentHeroImage]}')`;
-    heroEl.style.backgroundSize = 'cover';
-    heroEl.style.backgroundPosition = 'center';
+    const heroEl = document.getElementById('hero');
+    heroEl.innerHTML = `
+        <img src="${heroImages[currentHeroImage]}" 
+             alt="Vape Argentina - Descubre nuestra selección premium de vapes" 
+             class="absolute top-0 left-0 w-full h-full object-cover"
+             width="1920"
+             height="1080"
+             loading="${currentHeroImage === 0 ? 'eager' : 'lazy'}"
+             decoding="async">
+    `;
     currentHeroImage = (currentHeroImage + 1) % heroImages.length;
 }
 
