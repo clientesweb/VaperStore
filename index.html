@@ -123,6 +123,7 @@
             background: white;
             z-index: 9999;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -238,8 +239,7 @@
 
         /* Hero banner styles */
         #hero {
-            height: 1080px;
-            max-height: 100vh;
+            height: 100vh;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -252,7 +252,7 @@
             object-position: center;
         }
 
-        @media (max-width: 1920px) {
+        @media (min-aspect-ratio: 16/9) {
             #hero {
                 height: 56.25vw; /* 16:9 aspect ratio */
             }
@@ -263,6 +263,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
+        <p class="mt-4 text-sm text-gray-600">Powered by Duality Domain</p>
     </div>
 
     <!-- Top Banner -->
@@ -329,15 +330,15 @@
 
     <main>
         <!-- Hero Banner -->
-<div id="hero" class="relative w-full overflow-hidden" style="aspect-ratio: 16/9;">
-    <!-- El contenido se insertará dinámicamente aquí -->
-</div>
+        <div id="hero" class="relative w-full overflow-hidden">
+            <!-- El contenido se insertará dinámicamente aquí -->
+        </div>
 
-        <!-- New Advertising Banner without background image (reduced height) -->
-        <div class="gradient-bg p-6 text-center text-white">
-            <h2 class="text-2xl font-bold mb-2">¡Ofertas Especiales!</h2>
-            <p class="text-lg mb-2">Descubre nuestras increíbles promociones en vapes y líquidos.</p>
-            <a href="#" class="inline-block bg-white text-primary font-bold py-2 px-4 rounded-full hover:bg-gray-100 transition-colors">Ver Ofertas</a>
+        <!-- New Advertising Banner without background image (increased height and padding) -->
+        <div class="gradient-bg p-8 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">¡Ofertas Especiales!</h2>
+            <p class="text-xl mb-4">Descubre nuestras increíbles promociones en vapes y líquidos.</p>
+            <a href="#" class="inline-block bg-white text-primary font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors text-lg">Ver Ofertas</a>
         </div>
 
         <!-- Product Sections -->
