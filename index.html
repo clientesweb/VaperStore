@@ -282,11 +282,11 @@
     <!-- Header -->
     <header class="border-b border-gray-700 sticky top-0 bg-bg-dark z-50">
         <div class="container mx-auto flex items-center justify-between px-4 py-4">
-            <button id="mobileMenuButton" class="text-text-light hover:text-primary" aria-label="Abrir menú">
+            <button id="mobileMenuButton" class="text-text-light hover:text-primary lg:hidden" aria-label="Abrir menú">
                 <i class="fas fa-bars h-5 w-5 menu-icon"></i>
             </button>
 
-            <nav class="hidden space-x-6">
+            <nav class="hidden lg:flex space-x-6">
                 <a href="#vapes_recargables" class="text-sm font-medium text-text-light hover:text-primary">VAPES RECARGABLES</a>
                 <a href="#liquidos" class="text-sm font-medium text-text-light hover:text-primary">LIQUIDOS</a>
                 <a href="#vapes_desechables" class="text-sm font-medium text-text-light hover:text-primary">VAPES DESECHABLES</a>
@@ -313,8 +313,14 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-x-0 top-14 bg-bg-dark bg-opacity-95 z-50 hidden">
-        <div class="container mx-auto px-4 py-4">
+    <div id="mobileMenu" class="fixed inset-0 bg-bg-dark bg-opacity-95 z-50 hidden">
+        <div class="bg-bg-dark h-full w-64 p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold gradient-text">Menú</h2>
+                <button id="closeMobileMenu" class="text-text-light hover:text-primary" aria-label="Cerrar menú">
+                    <i class="fas fa-times h-5 w-5"></i>
+                </button>
+            </div>
             <nav class="flex flex-col space-y-4">
                 <a href="#vapes_recargables" class="text-sm font-medium text-text-light hover:text-primary">VAPES RECARGABLES</a>
                 <a href="#liquidos" class="text-sm font-medium text-text-light hover:text-primary">LIQUIDOS</a>
@@ -609,21 +615,43 @@
                 Proceder al pago
             </button>
         </div>
-    
-<script>
-    document.getElementById('mobileMenuButton').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('hidden');
-        this.querySelector('.menu-icon').classList.toggle('open');
-    });
+    </div>
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.querySelector('.menu-icon').classList.remove('open');
-        }
-    });
-</script>
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 hidden">
+        <div class="bg-bg-dark w-full max-w-md mx-auto mt-20 p-4 rounded-lg">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="productModalTitle" class="text-xl font-bold gradient-text"></h2>
+                <button id="closeProductModal" class="text-text-light hover:text-primary" aria-label="Cerrar detalles del producto">
+                    <i class="fas fa-times h-5 w-5"></i>
+                </button>
+            </div>
+            <div id="productModalContent" class="text-text-light">
+                <!-- Product details will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button and Notification -->
+    <div class="fixed bottom-4 right-4 z-40">
+        <button id="whatsappButton" class="bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full p-4 shadow-lg transition-colors" aria-label="Contactar por WhatsApp">
+            <img src="img/logo.png" 
+                 alt="WhatsApp Logo" 
+                 class="h-6 w-6 whatsapp-logo"
+                 width="24"
+                 height="24"
+                 loading="lazy"
+                 decoding="async">
+        </button>
+        <div id="whatsappNotification" class="absolute bottom-full right-0 mb-2 bg-gradient-to-r from-primary to-secondary p-4 rounded-lg shadow-lg hidden w-64">
+            <p class="text-sm font-medium mb-2 text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
+            <button id="closeWhatsappNotification" class="text-sm text-white hover:text-gray-200 transition-colors">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
