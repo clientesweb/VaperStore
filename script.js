@@ -23,8 +23,6 @@ const products = {
     ],
 };
 
-// El resto del script permanece sin cambios
-
 const bannerMessages = [
     "¡Nuevos sabores disponibles!",
     "Envíos a todo el país",
@@ -62,7 +60,6 @@ function updateBanner() {
 }
 
 function updateHero() {
-    const heroEl = document.getElementById('hero');
     heroEl.innerHTML = `
         <img src="${heroImages[currentHeroImage]}" 
              alt="Vape Argentina - Descubre nuestra selección premium de vapes" 
@@ -78,13 +75,13 @@ function updateHero() {
 function renderProducts() {
     for (const [category, productList] of Object.entries(products)) {
         productContainers[category].innerHTML = productList.map(product => `
-            <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="product-card flex-shrink-0 w-64 bg-bg-dark rounded-lg shadow-md overflow-hidden">
                 <div class="p-4">
                     <div class="relative mb-4 aspect-square">
                         <img src="${product.image}" alt="${product.name}" class="object-contain w-full h-full">
                     </div>
-                    <h3 class="text-sm font-medium line-clamp-2">${product.name}</h3>
-                    <p class="mt-2 text-lg font-bold">$${product.price.toLocaleString()}</p>
+                    <h3 class="text-sm font-medium line-clamp-2 text-text-light">${product.name}</h3>
+                    <p class="mt-2 text-lg font-bold text-text-light">$${product.price.toLocaleString()}</p>
                     <button class="w-full mt-2 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="openProductModal(${product.id}, '${category}')">
                         Ver detalles
                     </button>
@@ -111,14 +108,14 @@ function openProductModal(productId, category) {
             <div class="relative h-64 w-full">
                 <img src="${product.image}" alt="${product.name}" class="object-contain w-full h-full">
             </div>
-            <p class="text-gray-600">${product.description}</p>
-            <p class="text-lg font-bold">$${product.price.toLocaleString()}</p>
+            <p class="text-text-light">${product.description}</p>
+            <p class="text-lg font-bold text-text-light">$${product.price.toLocaleString()}</p>
             <div class="flex items-center justify-between">
-                <label for="quantity" class="text-sm font-medium">Cantidad:</label>
+                <label for="quantity" class="text-sm font-medium text-text-light">Cantidad:</label>
                 <div class="flex items-center">
-                    <button class="bg-gray-200 px-2 py-1 rounded-l" onclick="updateQuantity(-1)">-</button>
-                    <input id="quantity" type="number" class="w-16 text-center border-t border-b" value="1" min="1">
-                    <button class="bg-gray-200 px-2 py-1 rounded-r" onclick="updateQuantity(1)">+</button>
+                    <button class="bg-gray-700 text-text-light px-2 py-1 rounded-l" onclick="updateQuantity(-1)">-</button>
+                    <input id="quantity" type="number" class="w-16 text-center border-t border-b bg-gray-800 text-text-light" value="1" min="1">
+                    <button class="bg-gray-700 text-text-light px-2 py-1 rounded-r" onclick="updateQuantity(1)">+</button>
                 </div>
             </div>
             <button class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="addToCart(${product.id}, '${category}')">
@@ -175,8 +172,8 @@ function updateCartUI() {
             <div class="flex items-center space-x-4">
                 <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain">
                 <div>
-                    <p class="font-medium">${item.name}</p>
-                    <p class="text-sm text-gray-500">$${item.price.toLocaleString()} x ${item.quantity}</p>
+                    <p class="font-medium text-text-light">${item.name}</p>
+                    <p class="text-sm text-gray-400">$${item.price.toLocaleString()} x ${item.quantity}</p>
                 </div>
             </div>
             <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${item.id})">
@@ -250,12 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
-    document.getElementById('closeMobileMenu').addEventListener('click', () => {
-        const menuIcon = document.querySelector('.menu-icon');
-        menuIcon.classList.remove('open');
-        document.getElementById('mobileMenu').classList.add('hidden');
-    });
-
     document.getElementById('cartButton').addEventListener('click', () => {
         document.getElementById('cartModal').classList.remove('hidden');
     });
@@ -311,7 +302,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Remove preloader
     document.getElementById('preloader').style.display = 'none';
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.querySelector('.menu-icon').classList.remove('open');
+        }
+    });
+
+    // Close mobile menu when a menu item is clicked
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            document.querySelector('.menu-icon').classList.remove('open');
+        });
+    });
 });
 
-// For demonstration purposes only (this won't work in a Node.js environment)
+// Make necessary functions global
+window.scrollProducts = scrollProducts;
+window.openProductModal = openProductModal;
+window.updateQuantity = updateQuantity;
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+
 console.log("Script loaded successfully!");
