@@ -29,9 +29,9 @@ const bannerMessages = [
 ];
 
 const heroImages = [
-    "img/hero.jpg",
-    "img/hero1.jpg",
-    "img/hero2.jpg"
+    "img/hero.png",
+    "img/hero1.png",
+    "img/hero2.png"
 ];
 
 // State
