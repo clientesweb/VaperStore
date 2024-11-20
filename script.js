@@ -222,13 +222,13 @@ function updateAdvertisingBanner() {
 
     if (currentHour >= 6 && currentHour < 12) {
         message = "¡Oferta matutina! 15% de descuento en todos los vapes recargables";
-        backgroundImage = "url('https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
+        backgroundImage = "url('img/mañana.png')";
     } else if (currentHour >= 12 && currentHour < 18) {
         message = "¡Especial de la tarde! Compra un líquido y lleva el segundo a mitad de precio";
-        backgroundImage = "url('https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
+        backgroundImage = "url('img/tarde.png')";
     } else {
         message = "¡Oferta nocturna! Envío gratis en compras superiores a $5000";
-        backgroundImage = "url('https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')";
+        backgroundImage = "url('img/noche.png')";
     }
 
     advertisingMessage.textContent = message;
