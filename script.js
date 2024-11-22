@@ -29,23 +29,15 @@ const bannerMessages = [
     "¡Ofertas especiales este fin de semana!"
 ];
 
-const heroImages = [
-    "img/hero.png",
-    "img/hero1.png",
-    "img/hero2.png"
-];
-
 // State
 let cart = [];
 let currentBanner = 0;
-let currentHeroImage = 0;
 
 // DOM Elements
 const bannerMessageEl = document.getElementById('bannerMessage');
 const cartItemCountEl = document.getElementById('cartItemCount');
 const cartItemsEl = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
-const heroEl = document.getElementById('hero');
 const productContainers = {
     vapes_recargables: document.getElementById('vapes_recargablesContainer'),
     liquidos: document.getElementById('liquidosContainer'),
@@ -57,22 +49,6 @@ const productContainers = {
 function updateBanner() {
     bannerMessageEl.textContent = bannerMessages[currentBanner];
     currentBanner = (currentBanner + 1) % bannerMessages.length;
-}
-
-function updateHero() {
-    heroEl.innerHTML = `
-        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
-            <source src="ruta/a/tu/video.mp4" type="video/mp4">
-            Tu navegador no soporta el tag de video.
-        </video>
-        <div class="hero-content">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Vape Argentina</h1>
-            <p class="text-xl md:text-2xl mb-8">Descubre nuestra selección premium de vapes</p>
-            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
-                Explorar Productos
-            </button>
-        </div>
-    `;
 }
 
 function renderProducts() {
@@ -293,9 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateBanner();
     setInterval(updateBanner, 5000);
-
-    updateHero();
-    setInterval(updateHero, 5000);
 
     renderProducts();
 
