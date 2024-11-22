@@ -61,15 +61,18 @@ function updateBanner() {
 
 function updateHero() {
     heroEl.innerHTML = `
-        <img src="${heroImages[currentHeroImage]}" 
-             alt="Vape Argentina - Descubre nuestra selección premium de vapes" 
-             class="absolute top-0 left-0 w-full h-full object-cover"
-             width="1920"
-             height="1080"
-             loading="${currentHeroImage === 0 ? 'eager' : 'lazy'}"
-             decoding="async">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+            <source src="ruta/a/tu/video.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+        <div class="hero-content">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Vape Argentina</h1>
+            <p class="text-xl md:text-2xl mb-8">Descubre nuestra selección premium de vapes</p>
+            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
+                Explorar Productos
+            </button>
+        </div>
     `;
-    currentHeroImage = (currentHeroImage + 1) % heroImages.length;
 }
 
 function renderProducts() {
@@ -241,10 +244,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('topBanner').classList.add('hidden');
     });
 
-    document.getElementById('mobileMenuButton').addEventListener('click', () => {
-        const menuIcon = document.querySelector('.menu-icon');
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = mobileMenuButton.querySelector('.menu-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
         menuIcon.classList.toggle('open');
-        document.getElementById('mobileMenu').classList.toggle('hidden');
+        mobileMenu.classList.toggle('hidden');
     });
 
     document.getElementById('cartButton').addEventListener('click', () => {
@@ -305,19 +311,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
         if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
             mobileMenu.classList.add('hidden');
-            mobileMenuButton.querySelector('.menu-icon').classList.remove('open');
+            menuIcon.classList.remove('open');
         }
     });
 
     // Close mobile menu when a menu item is clicked
     document.querySelectorAll('#mobileMenu a').forEach(link => {
         link.addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.add('hidden');
-            document.querySelector('.menu-icon').classList.remove('open');
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('open');
         });
     });
 });
