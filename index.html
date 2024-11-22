@@ -374,37 +374,42 @@
 
     <main>
         <!-- Hero Banner con Video -->
-        <div id="hero">
-            <video autoplay loop muted playsinline>
-                <source src="vape-hero.video.mp4" type="video/mp4">
-                Tu navegador no soporta el tag de video.
-            </video>
-            <div class="hero-content">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Vape Argentina</h1>
-                <p class="text-xl md:text-2xl mb-8">Descubre nuestra selección premium de vapes</p>
-                <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
-                    Explorar Productos
+<div id="hero" class="relative w-full h-screen overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+        <source src="vape-video.mp4" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+    <div class="hero-content">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Vape Argentina</h1>
+        <p class="text-xl md:text-2xl mb-8">Descubre nuestra selección premium de vapes</p>
+        <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
+            Explorar Productos
+        </button>
+    </div>
+</div>
+
+        <!-- Nuevo Banner más impactante con mockup de Unsplash -->
+<div id="newBanner" class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuevos Sabores Disponibles</h2>
+                <p class="text-xl text-gray-600 mb-6">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
+                <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Ver Colección
                 </button>
             </div>
-        </div>
-
-        <!-- Nuevo Banner más impactante -->
-        <div id="newBanner">
-            <div class="container mx-auto px-4">
-                <div class="banner-content">
-                    <div class="banner-text">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuevos Sabores Disponibles</h2>
-                        <p class="text-xl text-white mb-6">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
-                        <button class="bg-white text-primary font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300">
-                            Ver Colección
-                        </button>
-                    </div>
-                    <div class="banner-image">
-                        <img src="ruta/a/tu/mockup.png" alt="Vape mockup" width="500" height="500">
-                    </div>
-                </div>
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                     alt="Vape mockup" 
+                     class="w-full h-auto rounded-lg shadow-2xl"
+                     width="1000"
+                     height="667"
+                     loading="lazy">
             </div>
         </div>
+    </div>
+</div>
 
         <!-- Product Sections -->
         <section id="vapes_recargables" class="container mx-auto px-4 py-12">
