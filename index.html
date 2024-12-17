@@ -65,6 +65,9 @@
             .gradient-text {
                 @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
             }
+            .product-card {
+                @apply w-[calc(50%-0.5rem)] flex-shrink-0 md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1rem)];
+            }
         }
     </style>
 
@@ -233,11 +236,11 @@
         <!-- Product Sections -->
         <section id="vapes_recargables" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES RECARGABLES</h2>
-            <div class="product-slider-container relative px-12">
+            <div class="product-slider-container relative px-8 md:px-12">
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_recargables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="vapes_recargablesContainer">
+                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="vapes_recargablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_recargables', 300)" aria-label="Siguiente">
@@ -248,11 +251,11 @@
 
         <section id="liquidos" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">LIQUIDOS</h2>
-            <div class="product-slider-container relative px-12">
+            <div class="product-slider-container relative px-8 md:px-12">
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('liquidos', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="liquidosContainer">
+                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="liquidosContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('liquidos', 300)" aria-label="Siguiente">
@@ -269,11 +272,11 @@
 
         <section id="vapes_desechables" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">VAPES DESECHABLES</h2>
-            <div class="product-slider-container relative px-12">
+            <div class="product-slider-container relative px-8 md:px-12">
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_desechables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="vapes_desechablesContainer">
+                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="vapes_desechablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_desechables', 300)" aria-label="Siguiente">
@@ -284,11 +287,11 @@
 
         <section id="resistencias" class="container mx-auto px-4 py-12">
             <h2 class="mb-8 text-center text-2xl font-bold gradient-text">RESISTENCIAS</h2>
-            <div class="product-slider-container relative px-12">
+            <div class="product-slider-container relative px-8 md:px-12">
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('resistencias', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="resistenciasContainer">
+                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="resistenciasContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('resistencias', 300)" aria-label="Siguiente">
@@ -487,7 +490,8 @@
     <div id="cartModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-75">
         <div class="absolute right-0 h-full w-full bg-bg-dark p-4 md:w-96">
             <div class="mb-4 flex items-center justify-between">
-                <h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
+                <<continuation_point>
+h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
                 <button id="closeCart" class="text-text-light hover:text-primary" aria-label="Cerrar carrito">
                     <i class="fas fa-times h-5 w-5"></i>
                 </button>
