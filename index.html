@@ -38,7 +38,35 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A9B8F',
+                        secondary: '#6B4C7D',
+                        'bg-dark': '#1A1A1A',
+                        'text-light': '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .gradient-text {
+                @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+            }
+        }
+    </style>
 
     <!-- Schema.org markup -->
     <script type="application/ld+json">
@@ -90,37 +118,36 @@
 </head>
 <body class="flex min-h-screen flex-col bg-bg-dark text-text-light">
     <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-        <p class="mt-4 text-sm text-gray-400">Powered by Duality Domain</p>
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-bg-dark">
+        <div class="h-16 w-16 animate-spin rounded-full border-t-4 border-primary"></div>
     </div>
 
     <!-- Top Banner -->
-    <div id="topBanner" class="gradient-bg p-2 text-center text-white relative">
+    <div id="topBanner" class="relative bg-gradient-to-r from-primary to-secondary p-2 text-center text-white">
         <p class="text-sm">
             <span id="bannerMessage"></span>
             <a href="#" class="underline">COMPRAR AHORA</a>
         </p>
-        <button id="closeBanner" class="absolute right-2 top-2 text-white hover:bg-primary-dark p-1" aria-label="Cerrar banner">
+        <button id="closeBanner" class="absolute right-2 top-2 p-1 text-white hover:bg-primary-dark" aria-label="Cerrar banner">
             <i class="fas fa-times h-4 w-4"></i>
         </button>
     </div>
 
     <!-- Header -->
-    <header class="border-b border-gray-700 sticky top-0 bg-bg-dark z-50">
+    <header class="sticky top-0 z-50 border-b border-gray-700 bg-bg-dark">
         <div class="container mx-auto flex items-center justify-between px-4 py-4">
             <button id="mobileMenuButton" class="text-text-light hover:text-primary lg:hidden" aria-label="Abrir menú">
                 <i class="fas fa-bars h-5 w-5 menu-icon"></i>
             </button>
 
-            <nav class="hidden lg:flex space-x-6">
+            <nav class="hidden space-x-6 lg:flex">
                 <a href="#vapes_recargables" class="text-sm font-medium text-text-light hover:text-primary">VAPES RECARGABLES</a>
                 <a href="#liquidos" class="text-sm font-medium text-text-light hover:text-primary">LIQUIDOS</a>
                 <a href="#vapes_desechables" class="text-sm font-medium text-text-light hover:text-primary">VAPES DESECHABLES</a>
                 <a href="#resistencias" class="text-sm font-medium text-text-light hover:text-primary">RESISTENCIAS</a>
             </nav>
 
-            <a href="/" class="flex items-center justify-center flex-grow lg:flex-grow-0">
+            <a href="/" class="flex flex-grow items-center justify-center lg:flex-grow-0">
                 <img src="img/logo.png" 
                      alt="Vape Argentina" 
                      width="200"
@@ -131,18 +158,18 @@
             </a>
 
             <div class="flex items-center space-x-4">
-                <button id="cartButton" class="text-text-light hover:text-primary relative" aria-label="Ver carrito">
+                <button id="cartButton" class="relative text-text-light hover:text-primary" aria-label="Ver carrito">
                     <i class="fas fa-shopping-cart h-5 w-5"></i>
-                    <span id="cartItemCount" class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-xs text-white hidden"></span>
+                    <span id="cartItemCount" class="absolute -right-1 -top-1 hidden flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-xs text-white"></span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-bg-dark bg-opacity-95 z-50 hidden">
-        <div class="bg-bg-dark h-full w-64 p-4">
-            <div class="flex justify-between items-center mb-4">
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden bg-bg-dark bg-opacity-95">
+        <div class="h-full w-64 bg-bg-dark p-4">
+            <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-xl font-bold gradient-text">Menú</h2>
                 <button id="closeMobileMenu" class="text-text-light hover:text-primary" aria-label="Cerrar menú">
                     <i class="fas fa-times h-5 w-5"></i>
@@ -158,9 +185,9 @@
     </div>
 
     <main>
-        <div id="hero" class="relative w-full h-screen overflow-hidden">
+        <div id="hero" class="relative h-screen w-full overflow-hidden">
             <video 
-                class="absolute top-0 left-0 w-full h-full object-cover"
+                class="absolute left-0 top-0 h-full w-full object-cover"
                 autoplay 
                 loop 
                 muted 
@@ -169,11 +196,11 @@
                 <source src="vape-hero2.mp4" type="video/mp4">
                 Tu navegador no soporta el tag de video.
             </video>
-            <div class="absolute inset-0 flex flex-col justify-end items-center pb-24 sm:pb-32 md:pb-40">
-                <div class="text-center text-white px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Vape Argentina</h1>
-                    <p class="text-xl md:text-2xl mb-6 drop-shadow-lg">Descubre nuestra selección premium de vapes</p>
-                    <button class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+            <div class="absolute inset-0 flex flex-col items-center justify-end pb-24 sm:pb-32 md:pb-40">
+                <div class="px-4 text-center text-white">
+                    <h1 class="mb-4 text-4xl font-bold drop-shadow-lg md:text-6xl">Vape Argentina</h1>
+                    <p class="mb-6 text-xl drop-shadow-lg md:text-2xl">Descubre nuestra selección premium de vapes</p>
+                    <button class="rounded-full bg-primary px-6 py-3 font-bold text-white transition duration-300 hover:bg-primary-dark hover:scale-105 transform">
                         Explorar Productos
                     </button>
                 </div>
@@ -183,18 +210,18 @@
         <!-- Nuevo Banner más impactante con mockup de Unsplash -->
         <div id="newBanner" class="py-16">
             <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuevos Sabores Disponibles</h2>
-                        <p class="text-xl text-gray-600 mb-6">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
-                        <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                <div class="flex flex-col items-center md:flex-row">
+                    <div class="mb-8 md:mb-0 md:w-1/2 md:pr-8">
+                        <h2 class="mb-4 text-3xl font-bold text-primary md:text-4xl">Nuevos Sabores Disponibles</h2>
+                        <p class="mb-6 text-xl text-gray-400">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
+                        <button class="rounded-full bg-primary px-6 py-2 font-bold text-white transition duration-300 hover:bg-primary-dark">
                             Ver Colección
                         </button>
                     </div>
                     <div class="md:w-1/2">
                         <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
                              alt="Vape mockup" 
-                             class="w-full h-auto rounded-lg shadow-2xl"
+                             class="h-auto w-full rounded-lg shadow-2xl"
                              width="1000"
                              height="667"
                              loading="lazy">
@@ -210,7 +237,7 @@
                 <button class="slider-button prev" onclick="scrollProducts('vapes_recargables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_recargablesContainer">
+                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="vapes_recargablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next" onclick="scrollProducts('vapes_recargables', 300)" aria-label="Siguiente">
@@ -225,7 +252,7 @@
                 <button class="slider-button prev" onclick="scrollProducts('liquidos', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="liquidosContainer">
+                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="liquidosContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next" onclick="scrollProducts('liquidos', 300)" aria-label="Siguiente">
@@ -235,9 +262,9 @@
         </section>
 
         <!-- New Advertising Banner (with background image and gradient text) -->
-        <div id="advertisingBanner" class="p-8 text-center relative" style="background-image: url('img/banner-bg.jpg'); background-size: cover; background-position: center;">
+        <div id="advertisingBanner" class="relative p-8 text-center" style="background-image: url('img/banner-bg.jpg'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 bg-black opacity-50"></div>
-            <p id="advertisingMessage" class="text-3xl font-bold mb-4 relative z-10 gradient-text"></p>
+            <p id="advertisingMessage" class="relative z-10 mb-4 text-3xl font-bold gradient-text"></p>
         </div>
 
         <section id="vapes_desechables" class="container mx-auto px-4 py-12">
@@ -246,7 +273,7 @@
                 <button class="slider-button prev" onclick="scrollProducts('vapes_desechables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="vapes_desechablesContainer">
+                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="vapes_desechablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next" onclick="scrollProducts('vapes_desechables', 300)" aria-label="Siguiente">
@@ -261,7 +288,7 @@
                 <button class="slider-button prev" onclick="scrollProducts('resistencias', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex overflow-x-auto scrollbar-hide gap-6" id="resistenciasContainer">
+                <div class="product-slider flex gap-6 overflow-x-auto scrollbar-hide" id="resistenciasContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next" onclick="scrollProducts('resistencias', 300)" aria-label="Siguiente">
@@ -271,9 +298,9 @@
         </section>
 
         <!-- ELF BAR Promotional Section -->
-        <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-16 mb-16">
+        <section class="mb-16 bg-gradient-to-r from-gray-900 to-gray-800 py-16">
             <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="grid items-center gap-8 md:grid-cols-2">
                     <div class="space-y-6">
                         <h2 class="text-4xl font-bold text-text-light">¡IGNITE V50 LLEGO PARA ACOMPAÑARTE EN TODO MOMENTO!</h2>
                         <p class="text-xl text-gray-400">TRENDING</p>
@@ -292,28 +319,28 @@
         </section>
 
         <!-- Features Section with Gradient Icons -->
-        <section class="bg-gray-900 py-12 mb-16">
+        <section class="mb-16 bg-gray-900 py-12">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4">
-                            <i class="fas fa-truck text-4xl gradient-icon"></i>
+                        <div class="mx-auto mb-4 h-16 w-16">
+                            <i class="fas fa-truck text-4xl gradient-text"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-text-light">DELIVERY RÁPIDO</h3>
+                        <h3 class="mb-2 text-xl font-bold text-text-light">DELIVERY RÁPIDO</h3>
                         <p class="text-gray-400">A toda Argentina</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4">
-                            <i class="fas fa-shield-alt text-4xl gradient-icon"></i>
+                        <div class="mx-auto mb-4 h-16 w-16">
+                            <i class="fas fa-shield-alt text-4xl gradient-text"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-text-light">COMPRA SEGURO</h3>
+                        <h3 class="mb-2 text-xl font-bold text-text-light">COMPRA SEGURO</h3>
                         <p class="text-gray-400">Garantía 100%</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4">
-                            <i class="fas fa-gift text-4xl gradient-icon"></i>
+                        <div class="mx-auto mb-4 h-16 w-16">
+                            <i class="fas fa-gift text-4xl gradient-text"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-text-light">PROMOCIONES</h3>
+                        <h3 class="mb-2 text-xl font-bold text-text-light">PROMOCIONES</h3>
                         <p class="text-gray-400">Aprovechá nuestras ofertas</p>
                     </div>
                 </div>
@@ -322,13 +349,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="gradient-bg text-white py-16">
+    <footer class="bg-gradient-to-r from-primary to-secondary py-16 text-white">
         <div class="container mx-auto px-4">
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <img src="img/logo.png" 
                          alt="Vape Argentina Logo" 
-                         class="h-20 w-auto mb-4"
+                         class="mb-4 h-20 w-auto"
                          width="200"
                          height="80"
                          loading="lazy"
@@ -338,16 +365,16 @@
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+                    <h3 class="mb-4 text-lg font-semibold">Enlaces rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#vapes_recargables" class="text-sm text-gray-200 hover:text-white transition-colors">Vapes Recargables</a></li>
-                        <li><a href="#liquidos" class="text-sm text-gray-200 hover:text-white transition-colors">Líquidos</a></li>
-                        <li><a href="#vapes_desechables" class="text-sm text-gray-200 hover:text-white transition-colors">Vapes Desechables</a></li>
-                        <li><a href="#resistencias" class="text-sm text-gray-200 hover:text-white transition-colors">Resistencias</a></li>
+                        <li><a href="#vapes_recargables" class="text-sm text-gray-200 transition-colors hover:text-white">Vapes Recargables</a></li>
+                        <li><a href="#liquidos" class="text-sm text-gray-200 transition-colors hover:text-white">Líquidos</a></li>
+                        <li><a href="#vapes_desechables" class="text-sm text-gray-200 transition-colors hover:text-white">Vapes Desechables</a></li>
+                        <li><a href="#resistencias" class="text-sm text-gray-200 transition-colors hover:text-white">Resistencias</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <h3 class="mb-4 text-lg font-semibold">Contacto</h3>
                     <ul class="space-y-2">
                         <li class="flex items-center text-sm text-gray-200">
                             <i class="fas fa-map-marker-alt mr-2 h-4 w-4"></i>
@@ -368,45 +395,45 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" class="text-gray-200 hover:text-white transition-colors" aria-label="Facebook">
+                    <h3 class="mb-4 text-lg font-semibold">Síguenos</h3>
+                    <div class="mb-4 flex space-x-4">
+                        <a href="#" class="text-gray-200 transition-colors hover:text-white" aria-label="Facebook">
                             <i class="fab fa-facebook h-6 w-6"></i>
                         </a>
-                        <a href="#" class="text-gray-200 hover:text-white transition-colors" aria-label="Instagram">
+                        <a href="#" class="text-gray-200 transition-colors hover:text-white" aria-label="Instagram">
                             <i class="fab fa-instagram h-6 w-6"></i>
                         </a>
-                        <a href="#" class="text-gray-200 hover:text-white transition-colors" aria-label="Twitter">
+                        <a href="#" class="text-gray-200 transition-colors hover:text-white" aria-label="Twitter">
                             <i class="fab fa-twitter h-6 w-6"></i>
                         </a>
                     </div>
-                    <h4 class="text-sm font-semibold mb-2">Suscríbete a nuestro newsletter</h4>
-                    <form class="flex flex-col sm:flex-row gap-2">
-                        <input type="email" placeholder="Tu email" class="flex-grow px-3 py-2 text-gray-900 rounded-md focus:outline-none" aria-label="Email para suscripción">
-                        <button type="submit" class="bg-bg-dark text-primary px-4 py-2 rounded-md hover:bg-gray-800 transition-colors">Suscribir</button>
+                    <h4 class="mb-2 text-sm font-semibold">Suscríbete a nuestro newsletter</h4>
+                    <form class="flex flex-col gap-2 sm:flex-row">
+                        <input type="email" placeholder="Tu email" class="flex-grow rounded-md px-3 py-2 text-gray-900 focus:outline-none" aria-label="Email para suscripción">
+                        <button type="submit" class="rounded-md bg-bg-dark px-4 py-2 text-primary transition-colors hover:bg-gray-800">Suscribir</button>
                     </form>
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-8">
-                <h3 class="text-lg font-semibold mb-4">Políticas</h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Políticas de Privacidad y Cookies</a></li>
-                    <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Términos y Condiciones de Uso</a></li>
-                    <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Política de Garantía</a></li>
-                    <li><a href="#" class="text-sm text-gray-200 hover:text-white transition-colors">Políticas de Envío</a></li>
+                <h3 class="mb-4 text-lg font-semibold">Políticas</h3>
+                <ul class="grid grid-cols-1 gap-2 md:grid-cols-2">
+                    <li><a href="#" class="text-sm text-gray-200 transition-colors hover:text-white">Políticas de Privacidad y Cookies</a></li>
+                    <li><a href="#" class="text-sm text-gray-200 transition-colors hover:text-white">Términos y Condiciones de Uso</a></li>
+                    <li><a href="#" class="text-sm text-gray-200 transition-colors hover:text-white">Política de Garantía</a></li>
+                    <li><a href="#" class="text-sm text-gray-200 transition-colors hover:text-white">Políticas de Envío</a></li>
                 </ul>
             </div>
             <div class="mt-8 text-center text-sm text-gray-200">
                 <p>© 2023 Vape Argentina. Todos los derechos reservados.</p>
-                <p class="mt-2">Powered by <a href="https://www.instagram.com/dualitydomain/profilecard/?igsh=MXFjZXJsbmZtaWphcw==" class="hover:text-white transition-colors">Duality Domain</a></p>
+                <p class="mt-2">Powered by <a href="https://www.instagram.com/dualitydomain/profilecard/?igsh=MXFjZXJsbmZtaWphcw==" class="transition-colors hover:text-white">Duality Domain</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Checkout Form Modal -->
-    <div id="checkoutModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 hidden overflow-y-auto">
-        <div class="bg-bg-dark w-full max-w-md mx-auto mt-10 mb-10 p-6 rounded-lg">
-            <div class="flex justify-between items-center mb-4">
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-gray-900 bg-opacity-75">
+        <div class="mx-auto mt-10 mb-10 w-full max-w-md rounded-lg bg-bg-dark p-6">
+            <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-xl font-bold gradient-text">Finalizar Compra</h2>
                 <button id="closeCheckoutModal" class="text-text-light hover:text-primary" aria-label="Cerrar formulario de compra">
                     <i class="fas fa-times h-5 w-5"></i>
@@ -449,7 +476,7 @@
                         <option value="efectivo">Efectivo</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors">
+                <button type="submit" class="w-full rounded bg-primary px-4 py-2 text-white transition-colors hover:bg-primary-dark">
                     Enviar pedido por WhatsApp
                 </button>
             </form>
@@ -457,9 +484,9 @@
     </div>
 
     <!-- Cart Modal -->
-    <div id="cartModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 hidden">
-        <div class="bg-bg-dark h-full w-full md:w-96 absolute right-0 p-4">
-            <div class="flex justify-between items-center mb-4">
+    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-75">
+        <div class="absolute right-0 h-full w-full bg-bg-dark p-4 md:w-96">
+            <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
                 <button id="closeCart" class="text-text-light hover:text-primary" aria-label="Cerrar carrito">
                     <i class="fas fa-times h-5 w-5"></i>
@@ -468,19 +495,19 @@
             <div id="cartItems" class="space-y-4">
                 <!-- Cart items will be dynamically inserted here -->
             </div>
-            <div class="border-t border-gray-700 pt-4 mt-4">
+            <div class="mt-4 border-t border-gray-700 pt-4">
                 <p class="font-bold text-text-light">Total: $<span id="cartTotal">0</span></p>
             </div>
-            <button id="checkoutButton" class="w-full bg-primary text-white py-2 px-4 rounded mt-4 hover:bg-primary-dark">
+            <button id="checkoutButton" class="mt-4 w-full rounded bg-primary px-4 py-2 text-white hover:bg-primary-dark">
                 Proceder al pago
             </button>
         </div>
     </div>
 
     <!-- Product Modal -->
-    <div id="productModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 hidden">
-        <div class="bg-bg-dark w-full max-w-md mx-auto mt-20 p-4 rounded-lg">
-            <div class="flex justify-between items-center mb-4">
+    <div id="productModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-75">
+        <div class="mx-auto mt-20 w-full max-w-md rounded-lg bg-bg-dark p-4">
+            <div class="mb-4 flex items-center justify-between">
                 <h2 id="productModalTitle" class="text-xl font-bold gradient-text"></h2>
                 <button id="closeProductModal" class="text-text-light hover:text-primary" aria-label="Cerrar detalles del producto">
                     <i class="fas fa-times h-5 w-5"></i>
@@ -494,7 +521,7 @@
 
     <!-- WhatsApp Button and Notification -->
     <div class="fixed bottom-4 right-4 z-40">
-        <button id="whatsappButton" class="bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full p-4 shadow-lg transition-colors" aria-label="Contactar por WhatsApp">
+        <button id="whatsappButton" class="rounded-full bg-[#25D366] p-4 text-white shadow-lg transition-colors hover:bg-[#20BA56]" aria-label="Contactar por WhatsApp">
             <img src="img/logo.png" 
                  alt="WhatsApp Logo" 
                  class="h-6 w-6 whatsapp-logo"
@@ -503,9 +530,9 @@
                  loading="lazy"
                  decoding="async">
         </button>
-        <div id="whatsappNotification" class="absolute bottom-full right-0 mb-2 bg-gradient-to-r from-primary to-secondary p-4 rounded-lg shadow-lg hidden w-64">
-            <p class="text-sm font-medium mb-2 text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
-            <button id="closeWhatsappNotification" class="text-sm text-white hover:text-gray-200 transition-colors">
+        <div id="whatsappNotification" class="absolute right-0 bottom-full mb-2 hidden w-64 rounded-lg bg-gradient-to-r from-primary to-secondary p-4 shadow-lg">
+            <p class="mb-2 text-sm font-medium text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
+            <button id="closeWhatsappNotification" class="text-sm text-white transition-colors hover:text-gray-200">
                 Cerrar
             </button>
         </div>
