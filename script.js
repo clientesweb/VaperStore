@@ -40,14 +40,14 @@ function updateBanner() {
 function renderProducts() {
     for (const [category, productList] of Object.entries(products)) {
         productContainers[category].innerHTML = productList.map(product => `
-            <div class="product-card bg-bg-dark rounded-lg shadow-md overflow-hidden">
-                <div class="p-4">
-                    <div class="relative mb-4 aspect-square">
-                        <img src="${product.image}" alt="${product.name}" class="object-contain w-full h-full">
+            <div class="product-card w-[calc(50%-0.25rem)] md:w-[calc(33.333%-0.5rem)] lg:w-[calc(25%-0.75rem)] flex-shrink-0">
+                <div class="p-2">
+                    <div class="relative mb-2 aspect-square">
+                        <img src="${product.image}" alt="${product.name}" class="object-cover w-full h-full rounded-lg">
                     </div>
-                    <h3 class="text-sm font-medium line-clamp-2 text-text-light">${product.name}</h3>
-                    <p class="mt-2 text-lg font-bold text-text-light">$${product.price.toLocaleString()}</p>
-                    <button class="w-full mt-2 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors" onclick="openProductModal(${product.id}, '${category}')">
+                    <h3 class="product-title line-clamp-2">${product.name}</h3>
+                    <p class="product-price">$${product.price.toLocaleString()}</p>
+                    <button class="w-full mt-2 bg-primary text-white py-1 px-2 rounded text-sm hover:bg-primary-dark transition-colors" onclick="openProductModal(${product.id}, '${category}')">
                         Ver detalles
                     </button>
                 </div>
