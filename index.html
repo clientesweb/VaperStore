@@ -66,7 +66,7 @@
                 @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
             }
             .product-card {
-                @apply w-[calc(50%-0.5rem)] flex-shrink-0 md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1rem)];
+                @apply w-[calc(50%-0.25rem)] md:w-[calc(33.333%-0.5rem)] lg:w-[calc(25%-0.75rem)] flex-shrink-0 bg-bg-dark rounded-lg shadow-md overflow-hidden;
             }
         }
     </style>
@@ -240,7 +240,7 @@
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_recargables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="vapes_recargablesContainer">
+                <div class="product-slider flex gap-2 md:gap-4 overflow-x-auto scrollbar-hide" id="vapes_recargablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_recargables', 300)" aria-label="Siguiente">
@@ -255,7 +255,7 @@
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('liquidos', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="liquidosContainer">
+                <div class="product-slider flex gap-2 md:gap-4 overflow-x-auto scrollbar-hide" id="liquidosContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('liquidos', 300)" aria-label="Siguiente">
@@ -276,7 +276,7 @@
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_desechables', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="vapes_desechablesContainer">
+                <div class="product-slider flex gap-2 md:gap-4 overflow-x-auto scrollbar-hide" id="vapes_desechablesContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('vapes_desechables', 300)" aria-label="Siguiente">
@@ -291,7 +291,7 @@
                 <button class="slider-button prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('resistencias', -300)" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="product-slider flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide" id="resistenciasContainer">
+                <div class="product-slider flex gap-2 md:gap-4 overflow-x-auto scrollbar-hide" id="resistenciasContainer">
                     <!-- Products will be dynamically inserted here -->
                 </div>
                 <button class="slider-button next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary bg-opacity-75 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300" onclick="scrollProducts('resistencias', 300)" aria-label="Siguiente">
@@ -491,59 +491,4 @@
         <div class="absolute right-0 h-full w-full bg-bg-dark p-4 md:w-96">
             <div class="mb-4 flex items-center justify-between">
                 <<continuation_point>
-h2 class="text-xl font-bold gradient-text">Carrito de Compras</h2>
-                <button id="closeCart" class="text-text-light hover:text-primary" aria-label="Cerrar carrito">
-                    <i class="fas fa-times h-5 w-5"></i>
-                </button>
-            </div>
-            <div id="cartItems" class="space-y-4">
-                <!-- Cart items will be dynamically inserted here -->
-            </div>
-            <div class="mt-4 border-t border-gray-700 pt-4">
-                <p class="font-bold text-text-light">Total: $<span id="cartTotal">0</span></p>
-            </div>
-            <button id="checkoutButton" class="mt-4 w-full rounded bg-primary px-4 py-2 text-white hover:bg-primary-dark">
-                Proceder al pago
-            </button>
-        </div>
-    </div>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-75">
-        <div class="mx-auto mt-20 w-full max-w-md rounded-lg bg-bg-dark p-4">
-            <div class="mb-4 flex items-center justify-between">
-                <h2 id="productModalTitle" class="text-xl font-bold gradient-text"></h2>
-                <button id="closeProductModal" class="text-text-light hover:text-primary" aria-label="Cerrar detalles del producto">
-                    <i class="fas fa-times h-5 w-5"></i>
-                </button>
-            </div>
-            <div id="productModalContent" class="text-text-light">
-                <!-- Product details will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- WhatsApp Button and Notification -->
-    <div class="fixed bottom-4 right-4 z-40">
-        <button id="whatsappButton" class="rounded-full bg-[#25D366] p-4 text-white shadow-lg transition-colors hover:bg-[#20BA56]" aria-label="Contactar por WhatsApp">
-            <img src="img/logo.png" 
-                 alt="WhatsApp Logo" 
-                 class="h-6 w-6 whatsapp-logo"
-                 width="24"
-                 height="24"
-                 loading="lazy"
-                 decoding="async">
-        </button>
-        <div id="whatsappNotification" class="absolute right-0 bottom-full mb-2 hidden w-64 rounded-lg bg-gradient-to-r from-primary to-secondary p-4 shadow-lg">
-            <p class="mb-2 text-sm font-medium text-white">¿Necesitas ayuda? ¡Contáctanos por WhatsApp!</p>
-            <button id="closeWhatsappNotification" class="text-sm text-white transition-colors hover:text-gray-200">
-                Cerrar
-            </button>
-        </div>
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
 
