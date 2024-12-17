@@ -37,26 +37,8 @@
     <link rel="preload" href="/img/logo.png" as="image">
 
     <!-- Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4A9B8F',
-                        secondary: '#6B4C7D',
-                        'primary-dark': '#3A7A70',
-                        'secondary-dark': '#523B60',
-                        'bg-dark': '#121212',
-                        'text-light': '#E0E0E0'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Schema.org markup -->
     <script type="application/ld+json">
@@ -105,203 +87,6 @@
         ]
     }
     </script>
-
-    <style>
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #121212;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #2A2A2A;
-            border-top: 5px solid #4A9B8F;
-            border-right: 5px solid #6B4C7D;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .gradient-text {
-            background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Menu icon animation */
-        .menu-icon {
-            transition: transform 0.3s ease;
-        }
-        .menu-icon.open {
-            transform: rotate(90deg);
-        }
-
-        /* Product card hover effects */
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* WhatsApp logo animation */
-        .whatsapp-logo {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Product slider styles */
-        .product-slider {
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .product-slider-container {
-            position: relative;
-        }
-
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            background: rgba(74, 155, 143, 0.9);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-button:hover {
-            background: rgba(74, 155, 143, 1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .slider-button.prev {
-            left: 0;
-        }
-
-        .slider-button.next {
-            right: 0;
-        }
-
-        /* New gradient background for advertising banner */
-        .gradient-bg {
-            background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
-        }
-
-        /* Gradient icons */
-        .gradient-icon {
-            background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Hero banner styles */
-        #hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        #hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-        }
-        
-        .hero-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-        }
-        
-        #newBanner {
-            background: linear-gradient(45deg, #4A9B8F, #6B4C7D);
-            padding: 4rem 0;
-        }
-        
-        .banner-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .banner-text {
-            flex: 1;
-            padding-right: 2rem;
-        }
-        
-        .banner-image {
-            flex: 1;
-            text-align: right;
-        }
-        
-        .banner-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-    </style>
 </head>
 <body class="flex min-h-screen flex-col bg-bg-dark text-text-light">
     <!-- Preloader -->
@@ -373,34 +158,46 @@
     </div>
 
     <main>
-        <!-- Hero Banner con Video -->
-        <div id="hero">
-            <video autoplay loop muted playsinline>
-                <source src="vape-hero.mp4" type="video/mp4">
+        <div id="hero" class="relative w-full h-screen overflow-hidden">
+            <video 
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                autoplay 
+                loop 
+                muted 
+                playsinline
+            >
+                <source src="vape-hero2.mp4" type="video/mp4">
                 Tu navegador no soporta el tag de video.
             </video>
-            <div class="hero-content">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Vape Argentina</h1>
-                <p class="text-xl md:text-2xl mb-8">Descubre nuestra selección premium de vapes</p>
-                <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
-                    Explorar Productos
-                </button>
+            <div class="absolute inset-0 flex flex-col justify-end items-center pb-24 sm:pb-32 md:pb-40">
+                <div class="text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Vape Argentina</h1>
+                    <p class="text-xl md:text-2xl mb-6 drop-shadow-lg">Descubre nuestra selección premium de vapes</p>
+                    <button class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                        Explorar Productos
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Nuevo Banner más impactante -->
-        <div id="newBanner">
+        <!-- Nuevo Banner más impactante con mockup de Unsplash -->
+        <div id="newBanner" class="py-16">
             <div class="container mx-auto px-4">
-                <div class="banner-content">
-                    <div class="banner-text">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuevos Sabores Disponibles</h2>
-                        <p class="text-xl text-white mb-6">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
-                        <button class="bg-white text-primary font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nuevos Sabores Disponibles</h2>
+                        <p class="text-xl text-gray-600 mb-6">Prueba nuestra nueva línea de líquidos premium con sabores exóticos.</p>
+                        <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition duration-300">
                             Ver Colección
                         </button>
                     </div>
-                    <div class="banner-image">
-                        <img src="ruta/a/tu/mockup.png" alt="Vape mockup" width="500" height="500">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Vape mockup" 
+                             class="w-full h-auto rounded-lg shadow-2xl"
+                             width="1000"
+                             height="667"
+                             loading="lazy">
                     </div>
                 </div>
             </div>
@@ -718,3 +515,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
